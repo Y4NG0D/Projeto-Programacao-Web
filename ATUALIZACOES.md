@@ -1,5 +1,11 @@
 ATUALIZAÇÕES:
 
+09/02/2024
+
+Estou iniciando com o projeto e através de algumas videoaulas, consegui replicar algumas coisas e incrementar a visualização do site, utilizando apenas HTML, em relação as dificuldades, tive algumas, pois ainda estou aprendendo sobre HTML, minhas principais dificuldades foi com nomenclatura e adição de cores ao projeto, aos poucos estou entendendo, mas ainda possuo um pouco de dificuldade.
+
+Abaixo listei melhorias feitas no código, e algumas explicações do que fiz e como fiz, espero que esteja de bom entendimento. 
+
 1. Adição de Metadados: Incluí duas meta tags importantes no `<head>` para definir o conjunto de caracteres (`charset`) como UTF-8 e configurar a largura da janela de visualização (`viewport`) para dispositivos móveis.
 
 2. Título da Página: O título da página foi alterado para "Lista de Atividades", refletindo o propósito da página.
