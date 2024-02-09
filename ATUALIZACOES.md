@@ -17,5 +17,3 @@ Abaixo listei melhorias feitas no código, e algumas explicações do que fiz e 
 5. Listagem de Atividades: Dentro do contêiner, uma lista `<ul>` foi adicionada para listar as atividades. Cada atividade é representada por um `<li>`.
 
 6. Rodapé: O rodapé inclui um aviso de direitos autorais e pode ser personalizado com o seu nome ou o nome do seu site.
-
-Com essas melhorias, seu site de lista de atividades deve ter uma aparência mais profissional e ser mais amigável ao usuário. Lembre-se de substituir as atividades de exemplo pelos seus próprios itens de lista.
