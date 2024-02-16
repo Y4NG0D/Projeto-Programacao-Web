@@ -17,3 +17,7 @@ Abaixo listei melhorias feitas no código, e algumas explicações do que fiz e 
 5. Listagem de Atividades: Dentro do contêiner, uma lista `<ul>` foi adicionada para listar as atividades. Cada atividade é representada por um `<li>`.
 
 6. Rodapé: O rodapé inclui um aviso de direitos autorais e pode ser personalizado com o seu nome ou o nome do seu site.
+
+7. Link: Foi adicionado um link para ligar a primeira atividade da disciplina, foi usado o comando `<a> href="" </a>` para referenciar a pasta contendo o arquivo index do link, foi utilizado o mesmo layout do site inicial, contendo as respostas da atividade.
+
+8. Quebra de linha: Adicionei a quebra de linha para deixar a segunda página do link mais limpa e visível, de forma que seja de fácil entendimento, usando o comando `<br>` `</br>`. 
