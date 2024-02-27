@@ -42,6 +42,18 @@
             bottom: 0;
             width: 100%;
         }
+        .back-button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #555;
+        }
     </style>
 </head>
 <body>
@@ -52,13 +64,20 @@
     <div class="container">
         <ul>
             <li> Atividade 1 <a href="01" target="_blank"> -Link- </a> </li>
-            <li>Atividade 2 <a href="02" target="_blank"> -Link- </a> </li>
-            <li>Atividade 3 <a href="03" target="_blank"> -Link- </a> </li>
+            <li> Atividade 2 <a href="02" target="_blank"> -Link- </a> </li>
+            <li> Atividade 3 <a href="03" target="_blank"> -Link- </a> </li>
         </ul>
+        <button class="back-button" onclick="goBack()">Voltar</button>
     </div>
     
     <footer>
         <p>&copy; 2024 Y4NG0D. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>
