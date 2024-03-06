@@ -22,4 +22,10 @@ Abaixo listei melhorias feitas no código, e algumas explicações do que fiz e 
 
 7. Link: Foi adicionado um link para ligar a primeira atividade da disciplina, foi usado o comando `<a> href="" </a>` para referenciar a pasta contendo o arquivo index do link, foi utilizado o mesmo layout do site inicial, contendo as respostas da atividade.
 
-8. Quebra de linha: Adicionei a quebra de linha para deixar a segunda página do link mais limpa e visível, de forma que seja de fácil entendimento, usando o comando `<br>` `</br>`. 
+8. Quebra de linha: Adicionei a quebra de linha para deixar a segunda página do link mais limpa e visível, de forma que seja de fácil entendimento, usando o comando `<br>` `</br>`.
+
+06/03/2024
+
+9. Separei o CSS do código HTML e o integrei por um codigo a parte, sendo utilizado um `styles.css´, e o comando de integração `<link rel="stylesheet" href="styles.css">´
+
+10. A atividade 2 referente à links foi corrida, e agora apresenta as abas de Home, Empresa e Contato, devidamente estilizadas e funcionais com ancoragem `<a></a>´ e 
