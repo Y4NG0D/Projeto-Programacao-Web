@@ -26,6 +26,6 @@ Abaixo listei melhorias feitas no código, e algumas explicações do que fiz e 
 
 06/03/2024
 
-9. Separei o CSS do código HTML e o integrei por um codigo a parte, sendo utilizado um `styles.css´, e o comando de integração `<link rel="stylesheet" href="styles.css">´
+9. Separei o CSS do código HTML e o integrei por um codigo a parte, sendo utilizado um `styles.css`, e o comando de integração `<link rel="stylesheet" href="styles.css">`
 
-10. A atividade 2 referente à links foi corrida, e agora apresenta as abas de Home, Empresa e Contato, devidamente estilizadas e funcionais com ancoragem `<a></a>´ e 
+10. A atividade 1 referente à links foi corrida, e agora apresenta as abas de Home, Empresa e Contato, devidamente estilizadas e funcionais com ancoragem `<a href=" ">` `</a>` e seus conteúdos preenchidos.
