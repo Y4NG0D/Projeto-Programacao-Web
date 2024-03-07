@@ -76,3 +76,75 @@ footer {
     border-color: #333;
 }
 
+/* Estilos anteriores permanecem inalterados */
+
+/* Modo Claro */
+body {
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+}
+
+li {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+}
+
+.back-button {
+    background-color: #333;
+    color: #fff;
+}
+
+.navigation a {
+    color: #333;
+    border-color: transparent;
+}
+
+button {
+    background-color: #007bff; /* Azul - Modo Claro */
+    color: #ffffff; /* Texto branco */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Modo Escuro */
+.dark-mode body {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode header {
+    background-color: #555;
+    color: #fff;
+}
+
+.dark-mode li {
+    background-color: #333;
+    box-shadow: none;
+}
+
+.dark-mode footer {
+    background-color: #555;
+    color: #fff;
+}
+
+.dark-mode .back-button {
+    background-color: #555;
+    color: #fff;
+}
+
+.dark-mode .navigation a {
+    color: #fff;
+    border-color: #fff;
+}
