@@ -5,7 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>JM Viagens - Página principal</title>
+    <title>JM Viagens - Destinos</title>
+    <style>
+        .destino {
+            margin-bottom: 20px;
+        }
+
+        .destino img {
+            width: 300px;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,29 +26,71 @@
                 <img src="imagens/logo.png" alt="Logo da JM Viagens">
             </td>
             <tr>
-            <td align="right">
-                <a href="quem-somos.html">Quem somos</a> |
-                <a href="index.html">Home</a> |
-                <a href="contato.html">Contato</a>
-            </td>
+                <td align="right">
+                    <a href="quem-somos.html">Quem somos</a> |
+                    <a href="pct.html">Pacotes de Viagem</a> |
+                    <a href="destinos.html">Destinos</a> |
+                    <a href="contato.html">Contato</a>
+                </td>
             </tr>
-        <tr>
-            <td>
-            <img src="imagens/principal.png" alt="Imagem principal">
-            </td>
         </tr>
         <tr>
             <td>
-                <p>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.</p>
-    
-                <p>É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica. Logo, o uso de Lorem Ipsum leva a uma distribuição mais ou menos normal de letras, ao contrário do uso de "Conteúdo aqui, conteúdo aqui", tornando-o texto legível. Muitas ferramentas de publicação electrónica e editores de páginas web usam actualmente o Lorem Ipsum como o modelo de texto usado por omissão, e uma pesquisa por "lorem ipsum" irá encontrar muitos websites ainda na sua infância.</p>
+                <!-- Destino 1 -->
+                <div class="destino">
+                    <img src="imagens/destino1.jpg" alt="Destino 1">
+                    <h3>Praias de Cancún</h3>
+                    <p>Desfrute das maravilhosas praias de areias brancas e águas cristalinas em Cancún. Pacotes disponíveis
+                        para mergulho, snorkeling e passeios de barco.</p>
+                </div>
+
+                <!-- Destino 2 -->
+                <div class="destino">
+                    <img src="imagens/destino2.jpg" alt="Destino 2">
+                    <h3>Paris, França</h3>
+                    <p>Explore a cidade do amor, com suas magníficas atrações como a Torre Eiffel, o Louvre e a Catedral de
+                        Notre-Dame. Desfrute da culinária francesa e das charmosas ruas de Paris.</p>
+                </div>
+
+                <!-- Destino 3 -->
+                <div class="destino">
+                    <img src="imagens/destino3.jpg" alt="Destino 3">
+                    <h3>Rio de Janeiro, Brasil</h3>
+                    <p>Visite uma das cidades mais vibrantes do mundo, com suas praias famosas como Copacabana e Ipanema,
+                        o Cristo Redentor e o Pão de Açúcar. Experimente a cultura e a energia do Rio de Janeiro.</p>
+                </div>
             </td>
         </tr>
-        </table>
-    
+    </table>
+
     <footer>
         <h4>Todos os direitos reservados</h4>
     </footer>
+
+    <form method="post" action="buscar.html"> <!-- Suponha que buscar.html seja a página onde você processa o formulário -->
+        Origem:<br/>
+        <input type="text" name="origem"><br/>
+        
+        Destino:<br/>
+        <input type="text" name="destino"><br/>
+        
+        Data de Partida:<br/>
+        <input type="date" name="data_partida"><br/>
+        
+        Data de Retorno:<br/>
+        <input type="date" name="data_retorno"><br/>
+        
+        Quartos:<br/>
+        <input type="number" name="quartos" min="1" value="1"><br/>
+        
+        Quantidade de Adultos:<br/>
+        <input type="number" name="adultos" min="1" value="1"><br/>
+        
+        Quantidade de Crianças:<br/>
+        <input type="number" name="criancas" min="0" value="0"><br/>
+        
+        <input type="submit" value="Buscar">
+    </form>
 
 </body>
 </html>
