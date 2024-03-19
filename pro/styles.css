@@ -25,3 +25,10 @@ footer {
         width: 300px;
         height: 200px;
         margin-bottom: 10px;
+    }
+    .pct img {
+        float: center;
+        margin-right: 20px;
+        width: 300px;
+        height: 200px;
+        margin-bottom: 10px;
