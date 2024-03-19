@@ -6,3 +6,22 @@ footer {
     bottom: 0;
     width: 100%;
 }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .destino {
+        margin-bottom: 30px;
+        border: 1px solid #ccc;
+        padding: 20px;
+        overflow: hidden;
+    }
+    .destino img {
+        float: left;
+        margin-right: 20px;
+    }
