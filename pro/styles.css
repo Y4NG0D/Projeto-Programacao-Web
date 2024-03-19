@@ -1,8 +1,7 @@
 footer {
-    color: #fff;
+    background-color: #333;
     padding: 20px;
     text-align: center;
-    position: fixed;
     bottom: 0;
     width: 100%;
 }
