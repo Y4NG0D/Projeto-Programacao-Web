@@ -7,7 +7,7 @@
 }
 
 .noticia {
-    width: calc(33.33% - 20px); /* Ajusta a largura do card de notícia */
+    width: calc(33.33% - 20px);
     margin: 10px;
     background-color: #F5F5DC;
     border: 1px solid black;
@@ -23,6 +23,6 @@
 }
 
 .imagem {
-    width: 100%; /* Ajusta a largura da imagem para preencher o card */
+    width: 100%;
     margin-bottom: 10px;
 }
