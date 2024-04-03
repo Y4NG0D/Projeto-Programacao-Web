@@ -9,6 +9,7 @@
 .noticia {
     width: calc(33.33% - 20px);
     margin: 10px;
+    float: right;
     background-color: #F5F5DC;
     border: 1px solid black;
     color: #333;
