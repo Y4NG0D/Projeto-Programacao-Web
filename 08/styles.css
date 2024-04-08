@@ -1,7 +1,7 @@
 .container {
     display: flex;
     margin: 1,25em;
-    max-width: 62,5em;
+    max-width: 1000px;
 }
 
 .noticia {
