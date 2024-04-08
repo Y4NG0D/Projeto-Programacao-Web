@@ -18,6 +18,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    font-family: "opensans-regular", arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .noticia h1 {
@@ -26,7 +29,14 @@
     margin-bottom: 10px;
 }
 
+.noticia p {
+    clear: both;
+}
+
 .imagem {
     width: 100%;
     margin-bottom: 10px;
+    float: right;
+    width: 200px;
+    padding: 10px;
 }
