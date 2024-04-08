@@ -11,3 +11,26 @@
     width: 500px;
     margin-bottom: 20px;
     float: left;
+}
+
+.noticia h1 {
+    color: #c4170c;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    margin: 8px;
+}
+
+.noticia p {
+    clear: both;
+}
+
+.imagem {
+    float: right;
+    width: 200px;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
