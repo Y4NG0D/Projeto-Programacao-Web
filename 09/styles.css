@@ -1,3 +1,10 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
 .noticia {
     font-family: "opensans-regular", arial, sans-serif;
     background-color: #F5F5DC;
@@ -8,9 +15,9 @@
     padding-right: 10px;
     text-align: justify;
     line-height: 24px;
-    width: 500px;
     margin-bottom: 20px;
     float: left;
+    flex: 1 1 auto; /* Define o comportamento flexível do item */
 }
 
 .noticia h1 {
@@ -27,12 +34,4 @@
     float: right;
     width: 200px;
     padding: 10px;
-}
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    background-color: #f9f9f9;
-    padding: 20px;
 }
