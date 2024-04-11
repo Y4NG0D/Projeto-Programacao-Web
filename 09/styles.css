@@ -10,11 +10,11 @@ body {
 }
 
 .caixa {
-    background: red;
+    background:  #FF0000;
     margin: 10px;
     width: 100px;
     height: 100px;
-    color: red;
+    color:  #FF0000;
 }
 
 #relativo {
