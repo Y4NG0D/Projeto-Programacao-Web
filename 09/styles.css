@@ -8,3 +8,11 @@ body{
     width: 900px;
     margin: 30px 100px;
 }
+
+.caixa{
+    background: red
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    color: #FFFFFF;
+}
