@@ -18,3 +18,8 @@ aside {
   background-color: #f2f2f2;
   padding: 10px;
 }
+.imagem {
+    float: left;
+    width: 200px;
+    padding: 10px;
+}
