@@ -1,0 +1,20 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+article {
+  border: 2px solid #ccc;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+section {
+  margin-bottom: 10px;
+}
+time {
+  font-style: italic;
+}
+aside {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
