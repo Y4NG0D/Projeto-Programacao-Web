@@ -17,7 +17,7 @@
 
 .card .imagem {
   float: left;
-  max-width: 100%; 
+  max-width: 10px; 
   height: auto;
   padding: 10px;
 }
