@@ -20,8 +20,7 @@ aside {
 }
 .imagem {
   float: left;
-  max-width: 100%; 
-  height: auto;
+  width: 30px; 
+  height: 30px;
   padding: 10px;
-  max-width: 300px;
 }
