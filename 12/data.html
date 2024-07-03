@@ -15,6 +15,14 @@
             margin-bottom: 10px;
         }
     </style>
+
+    <script type="text/javascript">
+        function mostrarvalor(componente){
+            var valor - componente.getAttribute('data-altura');
+            alert(valor);
+        }
+    </script>
+    
 </head>
     
 <body>
@@ -22,9 +30,9 @@
     <h1>Lista de Pessoas</h1>
 
     <ul>
-        <li class="pessoa" data-altura="1.75">João</li>
-        <li class="pessoa" data-altura="1.60">Maria</li>
-        <li class="pessoa" data-altura="1.82">Carlos</li>
+        <li class="pessoa" onclick="mostrarvalor(this)" data-altura="1.75">João</li>
+        <li class="pessoa" onclick="mostrarvalor(this)" data-altura="1.60">Maria</li>
+        <li class="pessoa" onclick="mostrarvalor(this)" data-altura="1.82">Carlos</li>
     </ul>
 
     <script>
