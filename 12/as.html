@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Pessoas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .pessoa {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lista de Pessoas</h1>
+
+    <ul>
+        <li class="pessoa" data-altura="1.75">João</li>
+        <li class="pessoa" data-altura="1.60">Maria</li>
+        <li class="pessoa" data-altura="1.82">Carlos</li>
+    </ul>
+
+    <script>
+        const pessoas = document.querySelectorAll('.pessoa');
+
+        pessoas.forEach(pessoa => {
+            const altura = pessoa.getAttribute('data-altura');
+            pessoa.textContent += ` - Altura: ${altura}m`;
+        });
+    </script>
+
+</body>
+</html>
 
