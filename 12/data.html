@@ -11,32 +11,55 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        .altura, .pessoas {
+        .produto, .pessoa {
             margin-bottom: 20px;
         }
-        .altura h3, .pessoa h3 {
+        .produto h3, .pessoa h3 {
             margin: 0;
         }
-        .data-altura {
+        .produto-detalhes {
             display: none;
         }
     </style>
     
-
+    <script>
+        function showdetalhes(button) {
+            const produto = button.parentElement; // div produto pai do botão, para cada produto uma div
+            const detalhes = produto.querySelector('.produto-detalhes'); // p que vai mostrar os detalhes do produto
+            // pega os atributos data de cada produto, esses atributos data estão na div produto
+            const id = produto.getAttribute('data-id');
+            const pessoas = pessoas.getAttribute('data-altura');
+            const preco = produto.getAttribute('data-preco');
+            const categoria = produto.getAttribute('data-categoria');
+            
+            // seta no conteúdo texto da p detalhes as informações do produto
+            detalhes.textContent = `ID: ${id}, Preço: R$ ${preco}, Categoria: ${categoria}`;
+            detalhes.style.display = 'block';
+        }
     </script>
-        <script type="text/javascript">
-        const pessoas = document.querySelectorAll('.pessoa');
-        function mostrarvalor(button) {
-            var valor = componente.getAttribute('data-altura'); 
-            alert(valor);
-        pessoas.forEach(pessoa => {
-            const altura = pessoa.getAttribute('data-altura');
-            pessoa.textContent += ` - Altura: ${altura}m`;
-        });
-    </script>
+    
 </head>
 <body>
 
+    <h1>Produtos</h1>
+
+    <div class="produto" data-id="1" data-preco="29,99" data-categoria="Livros">
+        <h3>Livro de Programação</h3>
+        <p class="produto-detalhes"></p>
+        <button onclick="showdetalhes(this)">Mostrar Detalhes</button>
+    </div>
+
+    <div class="produto" data-id="2" data-preco="49,99" data-categoria="Eletrônicos">
+        <h3>Mouse Gamer</h3>
+        <p class="produto-detalhes"></p>
+        <button onclick="showdetalhes(this)">Mostrar Detalhes</button>
+    </div>
+
+    <div class="produto" data-id="3" data-preco="99,99" data-categoria="Móveis">
+        <h3>Cadeira de Escritório</h3>
+        <p class="produto-detalhes"></p>
+        <button onclick="showdetalhes(this)">Mostrar Detalhes</button>
+    </div>
 
     <h1>Lista de Pessoas</h1>
 
@@ -46,7 +69,16 @@
         <li class="pessoa" onclick="mostrarvalor(this)" data-altura="1.82">Carlos</li>
     </ul>
 
-
+    <script type="text/javascript">
+        const pessoas = document.querySelectorAll('.pessoa');
+        function mostrarvalor(componente) {
+            var valor = componente.getAttribute('data-altura'); 
+            alert(valor);
+        pessoas.forEach(pessoa => {
+            const altura = pessoa.getAttribute('data-altura');
+            pessoa.textContent += ` - Altura: ${altura}m`;
+        });
+    </script>
     
 </body>
 </html>
