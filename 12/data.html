@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos e Pessoas</title>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,9 +20,10 @@
             display: none;
         }
     </style>
+    
     <script type="text/javascript">
         function mostrarvalor(componente) {
-            var valor = componente.getAttribute('data-altura'); // Corrigido o sinal de igual
+            var valor = componente.getAttribute('data-altura'); 
             alert(valor);
         }
 
@@ -30,6 +32,7 @@
             const detalhes = produto.querySelector('.produto-detalhes'); // p que vai mostrar os detalhes do produto
             // pega os atributos data de cada produto, esses atributos data estão na div produto
             const id = produto.getAttribute('data-id');
+            const pessoas = pessoas.getAttribute('data-altura');
             const preco = produto.getAttribute('data-preco');
             const categoria = produto.getAttribute('data-categoria');
             
@@ -38,6 +41,7 @@
             detalhes.style.display = 'block';
         }
     </script>
+    
 </head>
 <body>
 
