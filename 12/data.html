@@ -22,12 +22,7 @@
         }
     </style>
     
-    <script type="text/javascript">
-        function mostrarvalor(componente) {
-            var valor = componente.getAttribute('data-altura'); 
-            alert(valor);
-        }
-
+    <script>
         function showdetalhes(button) {
             const produto = button.parentElement; // div produto pai do botão, para cada produto uma div
             const detalhes = produto.querySelector('.produto-detalhes'); // p que vai mostrar os detalhes do produto
@@ -74,14 +69,16 @@
         <li class="pessoa" onclick="mostrarvalor(this)" data-altura="1.82">Carlos</li>
     </ul>
 
-    <script>
+    <script type="text/javascript">
         const pessoas = document.querySelectorAll('.pessoa');
-
+        function mostrarvalor(componente) {
+            var valor = componente.getAttribute('data-altura'); 
+            alert(valor);
         pessoas.forEach(pessoa => {
             const altura = pessoa.getAttribute('data-altura');
             pessoa.textContent += ` - Altura: ${altura}m`;
         });
     </script>
-
+    
 </body>
 </html>
