@@ -1,33 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .card {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 20px;
     padding: 10px;
+    background-color: #fff;
+    width: 300px;
 }
 
 .card header {
     background: #f0f0f0;
-    padding: 5px;
+    padding: 10px;
     margin-bottom: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .card header h2 {
     margin: 0;
+    font-size: 1.2em;
+}
+
+.card header p {
+    margin: 5px 0 0;
+    font-size: 0.8em;
 }
 
 .card .imagem {
-  float: left;
-  max-width: 80px; 
-  height: auto;
-  padding: 10px;
-}
+    float: left;
+    max-width: 80px;
+    height: auto;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .card .texto {
-    overflow: hidden; /* Para limpar o float da imagem */
+    overflow: hidden; /* Limpar o float da imagem */
+}
+
+.card .texto p {
+    margin: 0;
+    font-size: 0.9em;
+    line-height: 1.4;
 }
 
 .card footer {
     margin-top: 10px;
     font-style: italic;
+    font-size: 0.8em;
 }
