@@ -19,7 +19,7 @@ nav ul {
     list-style: none;
     padding: 0;
     text-align: center;
-    margin-top: 10px
+    margin-bottom: 10px
 }
 
 nav ul li {
@@ -57,7 +57,7 @@ footer {
 }
 
 #menu {
-    margin-top: 100px; /* Espaço para o header fixo */
+    margin-top: 50px; /* Espaço para o header fixo */
     background: #555;
     color: #fff;
     text-align: center;
