@@ -10,23 +10,30 @@ body {
 header {
     background: #333;
     color: #fff;
-    text-align: center;
     padding: 20px 0;
     width: 100%;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
+#menu {
+    background: #555;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0;
 }
 
-nav ul li {
-    display: inline;
+#menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#menu ul li {
     margin: 0 10px;
 }
 
-nav ul li a {
+#menu ul li a {
     text-decoration: none;
     color: #fff;
     background: #444;
@@ -47,41 +54,33 @@ footer {
 #header-fixo {
     position: fixed;
     width: 100%;
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
     top: 0;
     left: 0;
-}
-
-#menu {
-    background: #555;
-    color: #fff;
-    text-align: bottom;
-    padding: 50px;
-    width: 100%;
 }
 
 #conteudo {
     display: flex;
     flex: 1;
-    margin-top: 20px;
-    padding-top: 10px;
+    margin-top: 120px; /* Espaço para o header fixo */
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #esquerda, #direita {
     width: 25%;
     background: #ddd;
-    padding: 30px;
+    padding: 20px;
     overflow: auto;
+    box-sizing: border-box;
 }
 
 #centro {
     width: 50%;
     background: #fff;
-    padding: 30px;
+    padding: 20px;
     overflow: auto;
+    box-sizing: border-box;
 }
 
 /* Estilos para a página com sidebar fixa */
@@ -109,6 +108,7 @@ footer {
     background: #fff;
     padding: 20px;
     overflow: auto;
+    box-sizing: border-box;
 }
 
 #direita {
@@ -116,4 +116,5 @@ footer {
     background: #ddd;
     padding: 20px;
     overflow: auto;
+    box-sizing: border-box;
 }
