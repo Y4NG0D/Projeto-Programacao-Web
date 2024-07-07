@@ -1,3 +1,4 @@
+/* Reset básico e estilos globais */
 * {
     margin: 0;
     padding: 0;
@@ -25,8 +26,7 @@ header {
 }
 
 article {
-    display: flex;
-    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 article header {
@@ -41,19 +41,18 @@ article h2 {
 article time {
     color: #666;
     font-size: 0.9rem;
-    margin-bottom: 10px;
     display: block;
+    margin-bottom: 10px;
 }
 
 article img {
-    max-width: 100px;
-    margin: 0 20px 20px 0;
-    float: right;
+    max-width: 100%;
+    margin-bottom: 10px;
     border-radius: 5px;
 }
 
 article .content {
-    flex: 1;
+    margin-left: 120px; /* Ajuste o valor conforme necessário */
 }
 
 aside {
