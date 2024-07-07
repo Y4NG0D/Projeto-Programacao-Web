@@ -12,13 +12,19 @@ header {
     color: #fff;
     padding: 20px 0;
     width: 100%;
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+header h1 {
+    margin: 0;
 }
 
 #menu {
     background: #555;
     width: 100%;
     display: flex;
-    justify-content: flex-center;
+    justify-content: center; /* Centraliza os itens do menu */
     padding: 10px 0;
 }
 
@@ -72,7 +78,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px;
+    padding: 20px;
     overflow: auto;
     box-sizing: border-box;
 }
