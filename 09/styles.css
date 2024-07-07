@@ -67,22 +67,30 @@ footer {
 #conteudo {
     display: flex;
     flex: 1;
-    margin-top: 20px;
-    padding-top: 10px;
+    margin-top: 120px; /* Espaço para o header fixo */
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#esquerda, #direita, #centro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: auto;
+    box-sizing: border-box;
 }
 
 #esquerda, #direita {
     width: 25%;
     background: #ddd;
-    padding: 20px;
-    overflow: auto;
 }
 
 #centro {
     width: 50%;
     background: #fff;
-    padding: 20px;
-    overflow: auto;
 }
 
 /* Estilos para a página com sidebar fixa */
