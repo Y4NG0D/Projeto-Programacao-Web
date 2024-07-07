@@ -1,54 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exemplo de Uso das Tags HTML</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Uso de Tags HTML5</title>
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<article>
-  <header>
-    <h2>Como Fazer o Melhor Café em Casa</h2>
-    <p>Autor: João Silva</p>
-    <time datetime="2024-04-11">11 de Abril de 2024</time>
-  </header>
-  <section>
-    <p>Para fazer um café delicioso em casa, você vai precisar dos seguintes ingredientes:</p>
-    <ul>
-      <li>Café em grãos</li>
-      <li>Água filtrada</li>
-    </ul>
-  </section>
-  <figure class="imagem">
-    <img src="imagem/noticia3.jpg" alt="noticia1">
-    <figcaption>Uma xícara de café fresco</figcaption>
-  </figure>
-</article>
-
-<article>
-  <header>
-    <h2>10 Dicas para Melhorar sua Produtividade</h2>
-    <p>Autor: Maria Oliveira</p>
-    <time datetime="2024-04-10">10 de Abril de 2024</time>
-  </header>
-  <section>
-    <p>Aqui estão algumas dicas para aumentar sua produtividade no trabalho:</p>
-    <ol>
-      <li>Crie uma lista de tarefas</li>
-      <li>Estabeleça metas realistas</li>
-      <li>Faça pausas regulares</li>
-    </ol>
-  </section>
-  <figure class="imagem">
-    <img src="imagem/noticia4.jpg" alt="noticia2"> 
-    <figcaption>Trabalhando com eficiência</figcaption>
-  </figure>
-  <aside>
-    <p>Confira também nosso curso online sobre gestão do tempo!</p>
-  </aside>
-</article>
+    <header>
+        <h1>Exemplo de Uso de Tags HTML5</h1>
+    </header>
+    <section class="post">
+        <article>
+            <header>
+                <h2>Título da Postagem 1</h2>
+                <time datetime="2024-07-07">07 de Julho de 2024</time>
+            </header>
+            <img src="imagem1.jpg" alt="Imagem da Postagem 1">
+            <div class="content">
+                <p>Texto da matéria da Postagem 1...</p>
+                <aside>Autor: João da Silva</aside>
+            </div>
+        </article>
+    </section>
+    
+    <section class="post">
+        <article>
+            <header>
+                <h2>Título da Postagem 2</h2>
+                <time datetime="2024-07-07">07 de Julho de 2024</time>
+            </header>
+            <img src="imagem2.jpg" alt="Imagem da Postagem 2">
+            <div class="content">
+                <p>Texto da matéria da Postagem 2...</p>
+                <aside>Autor: Maria Souza</aside>
+            </div>
+        </article>
+    </section>
+    
+    <!-- Adicione mais postagens conforme necessário -->
 
 </body>
 </html>
