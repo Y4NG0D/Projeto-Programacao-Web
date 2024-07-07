@@ -1,128 +1,130 @@
 /* Estilos gerais */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+    margin: 0; /* Remove as margens padrão do corpo da página */
+    font-family: Arial, sans-serif; /* Define a fonte para todo o documento */
+    height: 100vh; /* Define a altura do corpo da página para ocupar 100% da altura da viewport */
+    display: flex; /* Usa o modelo de layout flexível */
+    flex-direction: column; /* Define a direção dos itens filhos como coluna */
 }
 
 header {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    width: 100%;
+    background: #333; /* Cor de fundo do cabeçalho */
+    color: #fff; /* Cor do texto dentro do cabeçalho */
+    text-align: center; /* Alinha o texto ao centro dentro do cabeçalho */
+    padding: 20px 0; /* Espaçamento interno de 20px em cima e em baixo */
+    width: 100%; /* Largura total do cabeçalho */
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-    margin-top: 10px
+    list-style: none; /* Remove os marcadores padrão da lista */
+    padding: 0; /* Remove o preenchimento padrão da lista */
+    text-align: center; /* Alinha os itens da lista ao centro */
+    margin-top: 10px; /* Espaço superior de 10px para a lista de navegação */
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 10px;
+    display: inline; /* Faz os itens da lista de navegação aparecerem em linha (um ao lado do outro) */
+    margin: 0 10px; /* Margem de 0 à esquerda e direita de cada item da lista */
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    background: #444;
-    padding: 5px 10px;
-    border-radius: 5px;
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    color: #fff; /* Cor do texto dos links */
+    background: #444; /* Cor de fundo dos links */
+    padding: 5px 10px; /* Espaçamento interno de 5px em cima e em baixo e 10px à esquerda e direita */
+    border-radius: 5px; /* Borda arredondada dos links */
 }
 
 footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: relative;
-    width: 100%;
+    background: #333; /* Cor de fundo do rodapé */
+    color: #fff; /* Cor do texto dentro do rodapé */
+    text-align: center; /* Alinha o texto ao centro dentro do rodapé */
+    padding: 10px 0; /* Espaçamento interno de 10px em cima e em baixo */
+    position: fixed; /* Fixa o rodapé no final da viewport */
+    bottom: 0; /* Alinha o rodapé ao final da viewport */
+    left: 0; /* Alinha o rodapé à esquerda */
+    width: 100%; /* Largura total do rodapé */
 }
 
 /* Estilos para a página com header fixo */
 #header-fixo {
-    position: fixed;
-    width: 100%;
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    top: 0;
-    left: 0;
+    position: fixed; /* Fixa o cabeçalho no topo da página */
+    width: 100%; /* Largura total do cabeçalho fixo */
+    background: #333; /* Cor de fundo do cabeçalho fixo */
+    color: #fff; /* Cor do texto dentro do cabeçalho fixo */
+    text-align: center; /* Alinha o texto ao centro dentro do cabeçalho fixo */
+    padding: 20px 0; /* Espaçamento interno de 20px em cima e em baixo */
+    top: 0; /* Alinha o cabeçalho fixo ao topo da viewport */
+    left: 0; /* Alinha o cabeçalho fixo à esquerda da viewport */
 }
 
 #menu {
-    background: #555;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
+    background: #555; /* Cor de fundo do menu */
+    color: #fff; /* Cor do texto dentro do menu */
+    text-align: center; /* Alinha o texto ao centro dentro do menu */
+    padding: 10px; /* Espaçamento interno de 20px */
+    width: 100%; /* Largura total do menu */
 }
 
 #conteudo {
-    display: flex;
-    flex: 1;
-    margin-top: 120px; /* Espaço para o header fixo */
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
+    display: flex; /* Usa o modelo de layout flexível */
+    flex: 1; /* Expande o conteúdo para ocupar o espaço disponível */
+    margin-top: 120px; /* Espaço para o cabeçalho fixo */
+    padding: 10px; /* Espaçamento interno de 10px */
+    width: 100%; /* Largura total do conteúdo */
+    box-sizing: border-box; /* Inclui o padding e a borda na largura e altura total */
 }
 
 #esquerda, #direita, #centro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    overflow: auto;
-    box-sizing: border-box;
+    display: flex; /* Usa o modelo de layout flexível */
+    flex-direction: column; /* Define a direção dos itens filhos como coluna */
+    justify-content: center; /* Alinha os itens verticalmente ao centro */
+    align-items: center; /* Alinha os itens horizontalmente ao centro */
+    padding: 20px; /* Espaçamento interno de 20px */
+    overflow: auto; /* Adiciona uma barra de rolagem quando necessário */
+    box-sizing: border-box; /* Inclui o padding e a borda na largura e altura total */
 }
 
 #esquerda, #direita {
-    width: 25%;
-    background: #ddd;
+    width: 25%; /* Largura de 25% para a esquerda e direita */
+    background: #ddd; /* Cor de fundo cinza claro */
 }
 
 #centro {
-    width: 50%;
-    background: #fff;
+    width: 50%; /* Largura de 50% para o centro */
+    background: #fff; /* Cor de fundo branco */
 }
 
 /* Estilos para a página com sidebar fixa */
 #sidebar-fixo {
-    position: fixed;
-    width: 25%;
-    height: 100%;
-    background: #555;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    top: 0;
-    left: 0;
+    position: fixed; /* Fixa a barra lateral à esquerda da página */
+    width: 25%; /* Largura de 25% para a barra lateral fixa */
+    height: 100%; /* Altura de 100% para a barra lateral fixa */
+    background: #555; /* Cor de fundo da barra lateral fixa */
+    color: #fff; /* Cor do texto dentro da barra lateral fixa */
+    text-align: center; /* Alinha o texto ao centro dentro da barra lateral fixa */
+    padding: 20px 0; /* Espaçamento interno de 20px em cima e em baixo */
+    top: 0; /* Alinha a barra lateral fixa ao topo da viewport */
+    left: 0; /* Alinha a barra lateral fixa à esquerda da viewport */
 }
 
 #conteudo-sidebar {
-    display: flex;
-    flex: 1;
-    margin-left: 25%; /* Espaço para a sidebar fixa */
-    padding-top: 10px;
+    display: flex; /* Usa o modelo de layout flexível */
+    flex: 1; /* Expande o conteúdo para ocupar o espaço disponível */
+    margin-left: 25%; /* Espaço para a barra lateral fixa */
+    padding-top: 10px; /* Espaçamento interno de 10px no topo */
 }
 
 #centro-largo {
-    width: 75%;
-    background: #fff;
-    padding: 20px;
-    overflow: auto;
+    width: 75%; /* Largura de 75% para o conteúdo principal */
+    background: #fff; /* Cor de fundo branco */
+    padding: 20px; /* Espaçamento interno de 20px */
+    overflow: auto; /* Adiciona uma barra de rolagem quando necessário */
 }
 
 #direita {
-    width: 25%;
-    background: #ddd;
-    padding: 20px;
-    overflow: auto;
+    width: 25%; /* Largura de 25% para a barra lateral direita */
+    background: #ddd; /* Cor de fundo cinza claro */
+    padding: 20px; /* Espaçamento interno de 20px */
+    overflow: auto; /* Adiciona uma barra de rolagem quando necessário */
 }
