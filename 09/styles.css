@@ -10,32 +10,23 @@ body {
 header {
     background: #333;
     color: #fff;
+    text-align: center;
     padding: 20px 0;
     width: 100%;
-    text-align: center; /* Centraliza o texto do header */
 }
 
-#menu {
-    background: #555;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centraliza verticalmente os itens */
-    padding: 10px 0;
-}
-
-#menu ul {
+nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
-    display: flex;
+    text-align: center;
 }
 
-#menu ul li {
+nav ul li {
+    display: inline;
     margin: 0 10px;
 }
 
-#menu ul li a {
+nav ul li a {
     text-decoration: none;
     color: #fff;
     background: #444;
@@ -56,37 +47,41 @@ footer {
 #header-fixo {
     position: fixed;
     width: 100%;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
     top: 0;
     left: 0;
+}
+
+#menu {
+    background: #555;
+    color: #fff;
+    text-align: center;
+    padding: 100px;
+    width: 100%;
 }
 
 #conteudo {
     display: flex;
     flex: 1;
-    margin-top: 120px; /* Espaço para o header fixo */
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-#esquerda, #direita, #centro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    overflow: auto;
-    box-sizing: border-box;
+    margin-top: 20px;
+    padding-top: 10px;
 }
 
 #esquerda, #direita {
     width: 25%;
     background: #ddd;
+    padding: 20px;
+    overflow: auto;
 }
 
 #centro {
     width: 50%;
     background: #fff;
+    padding: 20px;
+    overflow: auto;
 }
 
 /* Estilos para a página com sidebar fixa */
@@ -97,7 +92,7 @@ footer {
     background: #555;
     color: #fff;
     text-align: center;
-    padding: 30px 0;
+    padding: 20px 0;
     top: 0;
     left: 0;
 }
@@ -114,7 +109,6 @@ footer {
     background: #fff;
     padding: 20px;
     overflow: auto;
-    box-sizing: border-box;
 }
 
 #direita {
@@ -122,5 +116,4 @@ footer {
     background: #ddd;
     padding: 20px;
     overflow: auto;
-    box-sizing: border-box;
 }
