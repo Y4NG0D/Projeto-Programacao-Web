@@ -1,63 +1,24 @@
-/* Reset básico e estilos globais */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f2f2f2;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
-
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.post {
-    background-color: #fff;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
 article {
-    margin-bottom: 20px;
+  border: 2px solid #ccc;
+  margin-bottom: 20px;
+  padding: 20px;
 }
-
-article header {
-    margin-bottom: 10px;
+section {
+  margin-bottom: 10px;
 }
-
-article h2 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+time {
+  font-style: italic;
 }
-
-article time {
-    color: #666;
-    font-size: 0.9rem;
-    display: block;
-    margin-bottom: 10px;
-}
-
-article img {
-    max-width: 100%;
-    margin-bottom: 10px;
-    border-radius: 5px;
-}
-
-article .content {
-    margin-left: 120px; /* Ajuste o valor conforme necessário */
-}
-
 aside {
-    font-style: italic;
-    color: #999;
-    font-size: 0.8rem;
-    margin-top: 10px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+.imagem img {
+  width: 200px; 
+  height: 200px;
 }
