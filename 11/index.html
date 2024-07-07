@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exemplo de Uso de Tags HTML5</title>
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Tag Article Section Time Aside</h1>
+        <h1>Exemplo de Uso de Tags HTML5</h1>
     </header>
     <section class="post">
         <article>
             <header>
-                <h2>Borboletas em Extinção na Mata Atlântica</h2>
+                <h2>Título da Postagem 1</h2>
                 <time datetime="2024-07-07">07 de Julho de 2024</time>
             </header>
+            <img src="imagem1.jpg" alt="Imagem da Postagem 1">
             <div class="content">
-                <img src="imagem/noticia1.jpg" alt="Imagem 1">
-                <p>Pesquisadores brasileiros descobriram um novo gênero e espécie de borboleta durante expedições realizadas nas montanhas do leste de Minas Gerais, como parte de um projeto que estuda ecossistemas rochosos da Mata Atlântica.</p>
+                <p>Texto da matéria da Postagem 1...</p>
                 <aside>Autor: João da Silva</aside>
             </div>
         </article>
@@ -27,16 +30,18 @@
     <section class="post">
         <article>
             <header>
-                <h2>Plano Real: gasolina custava R$ 0,55 há 30 anos; veja quanto seria hoje</h2>
+                <h2>Título da Postagem 2</h2>
                 <time datetime="2024-07-07">07 de Julho de 2024</time>
             </header>
+            <img src="imagem2.jpg" alt="Imagem da Postagem 2">
             <div class="content">
-                <img src="imagem/noticia2.jpg" alt="Imagem 2">
-                <p>Este mês de julho marca os 30 anos do Plano Real, criado em 1994 para substituir o cruzeiro e controlar a hiperinflação do Brasil. Autoesporte já fez um comparativo mostrando quanto os carros vendidos há três décadas custariam hoje com a correção da inflação — o preço de um Fiat Uno, por exemplo, saltaria de R$ 7.254 para R$ 85.683.</p>
+                <p>Texto da matéria da Postagem 2...</p>
                 <aside>Autor: Maria Souza</aside>
             </div>
         </article>
     </section>
+    
+    <!-- Adicione mais postagens conforme necessário -->
 
 </body>
 </html>
