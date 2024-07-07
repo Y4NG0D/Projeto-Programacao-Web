@@ -1,34 +1,52 @@
 body {
-    background: #61bd8c;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#header-fixo {
+    position: fixed;
+    width: 100%;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    top: 0;
+    left: 0;
+}
+
+#menu {
+    margin-top: 80px;
+    background: #555;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
 }
 
 #conteudo {
-    background: #FFFFFF;
-    padding: 10px;
-    width: 900px;
-    margin: 30px auto;
+    display: flex;
+    margin-top: 20px;
+    padding-top: 10px;
 }
 
-.caixa {
-    background: red;
-    margin: 10px;
-    width: 100px;
-    height: 100px;
-    color: #FFFFFF;
+#esquerda, #direita {
+    width: 25%;
+    background: #ddd;
+    padding: 20px;
 }
 
-#relativo {
+#centro {
+    width: 50%;
+    background: #fff;
+    padding: 20px;
+}
+
+#footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
     position: relative;
-    left: 30px;
-}
-
-#absoluto {
-    position: absolute;
-    left: 30px;
-}
-
-#fixo {
-    position: fixed;
-    left: 200px;
-    top: 0px;
+    width: 100%;
+    margin-top: 20px;
 }
