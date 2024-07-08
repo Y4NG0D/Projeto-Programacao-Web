@@ -6,44 +6,85 @@
     <title>Exemplo de data-*</title>
     <link rel="stylesheet" href="styles.css">
     <script type="text/javascript">
-        function mostrarvalor(componente) {
-            var valor = componente.getAttribute('data-altura'); 
-            alert(valor);
+        function toggleInfo(button, infoType) {
+            const listItem = button.parentElement;
+            const info = listItem.querySelector('.info');
+
+            if (info.style.display === 'none' || info.style.display === '') {
+                info.innerHTML = getInfo(listItem, infoType);
+                info.style.display = 'block';
+                button.textContent = 'Esconder Informações';
+            } else {
+                info.style.display = 'none';
+                button.textContent = 'Mostrar Informações';
+            }
         }
 
-        function mostrarNome(componente) {
-            var nome = componente.textContent;
-            alert(nome);
-        }
-
-        function mostrarInfoCompleta(componente) {
-            var altura = componente.getAttribute('data-altura');
-            var idade = componente.getAttribute('data-idade');
-            var cpf = componente.getAttribute('data-cpf');
-            alert(`Altura: ${altura}, Idade: ${idade}, CPF: ${cpf}`);
+        function getInfo(listItem, infoType) {
+            const nome = listItem.textContent.trim().split('\n')[0];
+            let infoText = `<strong>Nome:</strong> ${nome}`;
+            if (infoType === 'altura') {
+                const altura = listItem.getAttribute('data-altura');
+                infoText += `<br><strong>Altura:</strong> ${altura}`;
+            } else if (infoType === 'completa') {
+                const altura = listItem.getAttribute('data-altura');
+                const idade = listItem.getAttribute('data-idade');
+                const cpf = listItem.getAttribute('data-cpf');
+                infoText += `<br><strong>Altura:</strong> ${altura}`;
+                infoText += `<br><strong>Idade:</strong> ${idade}`;
+                infoText += `<br><strong>CPF:</strong> ${cpf}`;
+            }
+            return infoText;
         }
     </script>
 </head>
 <body>
     <h1>Pessoas</h1>
     <ul>
-        <li class="pessoa" onclick="mostrarvalor(this)" data-altura="1.75">João</li>
-        <li class="pessoa" onclick="mostrarvalor(this)" data-altura="1.60">Maria</li>
-        <li class="pessoa" onclick="mostrarvalor(this)" data-altura="1.82">Carlos</li>
+        <li class="pessoa" data-altura="1.75">João
+            <button onclick="toggleInfo(this, 'nome')">Mostrar Informações</button>
+            <p class="info" style="display:none;"></p>
+        </li>
+        <li class="pessoa" data-altura="1.60">Maria
+            <button onclick="toggleInfo(this, 'nome')">Mostrar Informações</button>
+            <p class="info" style="display:none;"></p>
+        </li>
+        <li class="pessoa" data-altura="1.82">Carlos
+            <button onclick="toggleInfo(this, 'nome')">Mostrar Informações</button>
+            <p class="info" style="display:none;"></p>
+        </li>
     </ul>
 
-    <h1>Pessoas com Nome</h1>
+    <h1>Pessoas com Nome e Altura</h1>
     <ul>
-        <li class="pessoa" onclick="mostrarNome(this)" data-altura="1.75">João</li>
-        <li class="pessoa" onclick="mostrarNome(this)" data-altura="1.60">Maria</li>
-        <li class="pessoa" onclick="mostrarNome(this)" data-altura="1.82">Carlos</li>
+        <li class="pessoa" data-altura="1.75">João
+            <button onclick="toggleInfo(this, 'altura')">Mostrar Informações</button>
+            <p class="info" style="display:none;"></p>
+        </li>
+        <li class="pessoa" data-altura="1.60">Maria
+            <button onclick="toggleInfo(this, 'altura')">Mostrar Informações</button>
+            <p class="info" style="display:none;"></p>
+        </li>
+        <li class="pessoa" data-altura="1.82">Carlos
+            <button onclick="toggleInfo(this, 'altura')">Mostrar Informações</button>
+            <p class="info" style="display:none;"></p>
+        </li>
     </ul>
 
     <h1>Pessoas com Informações Completas</h1>
     <ul>
-        <li class="pessoa" onclick="mostrarInfoCompleta(this)" data-altura="1.75" data-idade="25" data-cpf="123.456.789-00">João</li>
-        <li class="pessoa" onclick="mostrarInfoCompleta(this)" data-altura="1.60" data-idade="30" data-cpf="987.654.321-00">Maria</li>
-        <li class="pessoa" onclick="mostrarInfoCompleta(this)" data-altura="1.82" data-idade="28" data-cpf="456.123.789-00">Carlos</li>
+        <li class="pessoa" data-altura="1.75" data-idade="25" data-cpf="123.456.789-00">João
+            <button onclick="toggleInfo(this, 'completa')">Mostrar Informações</button>
+            <p class="info" style="display:none;"></p>
+        </li>
+        <li class="pessoa" data-altura="1.60" data-idade="30" data-cpf="987.654.321-00">Maria
+            <button onclick="toggleInfo(this, 'completa')">Mostrar Informações</button>
+            <p class="info" style="display:none;"></p>
+        </li>
+        <li class="pessoa" data-altura="1.82" data-idade="28" data-cpf="456.123.789-00">Carlos
+            <button onclick="toggleInfo(this, 'completa')">Mostrar Informações</button>
+            <p class="info" style="display:none;"></p>
+        </li>
     </ul>
 </body>
 </html>
