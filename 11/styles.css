@@ -9,18 +9,20 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    margin: 0;
 }
 
 .header {
     background-color: #f0f0f0;
     padding: 20px;
     text-align: center;
-    width: 100%;
+    border: 1px solid #ccc;
 }
 
 .container {
     display: flex;
     flex: 1;
+    width: 100%;
 }
 
 .nav {
@@ -28,6 +30,7 @@ body {
     color: #fff;
     padding: 20px;
     width: 20%;
+    border-right: 1px solid #ccc;
 }
 
 .nav ul {
@@ -53,14 +56,15 @@ body {
 
 .content-block {
     width: 45%;
-    margin: 20px;
     background-color: #f0f0f0;
     padding: 20px;
+    border: 1px solid #ccc;
 }
 
 .section, .header-content, .article, .footer-content {
     margin-bottom: 20px;
     padding: 20px;
+    border: 1px solid #ccc;
 }
 
 .section {
@@ -80,6 +84,7 @@ body {
     background-color: #f0f0f0;
     padding: 20px;
     width: 20%;
+    border-left: 1px solid #ccc;
 }
 
 .footer {
@@ -87,7 +92,7 @@ body {
     color: #fff;
     padding: 20px;
     text-align: center;
-    width: 100%;
+    border: 1px solid #ccc;
 }
 
 @media (max-width: 768px) {
