@@ -17,9 +17,10 @@
         }
 
         function mostrarInfoCompleta(componente) {
+            var altura = componente.getAttribute('data-altura');
             var idade = componente.getAttribute('data-idade');
             var cpf = componente.getAttribute('data-cpf');
-            alert(`Idade: ${idade}, CPF: ${cpf}`);
+            alert(`Altura: ${altura}, Idade: ${idade}, CPF: ${cpf}`);
         }
     </script>
 </head>
@@ -29,6 +30,20 @@
         <li class="pessoa" onclick="mostrarvalor(this)" data-altura="1.75">João</li>
         <li class="pessoa" onclick="mostrarvalor(this)" data-altura="1.60">Maria</li>
         <li class="pessoa" onclick="mostrarvalor(this)" data-altura="1.82">Carlos</li>
+    </ul>
+
+    <h1>Pessoas com Nome</h1>
+    <ul>
+        <li class="pessoa" onclick="mostrarNome(this)" data-altura="1.75">João</li>
+        <li class="pessoa" onclick="mostrarNome(this)" data-altura="1.60">Maria</li>
+        <li class="pessoa" onclick="mostrarNome(this)" data-altura="1.82">Carlos</li>
+    </ul>
+
+    <h1>Pessoas com Informações Completas</h1>
+    <ul>
+        <li class="pessoa" onclick="mostrarInfoCompleta(this)" data-altura="1.75" data-idade="25" data-cpf="123.456.789-00">João</li>
+        <li class="pessoa" onclick="mostrarInfoCompleta(this)" data-altura="1.60" data-idade="30" data-cpf="987.654.321-00">Maria</li>
+        <li class="pessoa" onclick="mostrarInfoCompleta(this)" data-altura="1.82" data-idade="28" data-cpf="456.123.789-00">Carlos</li>
     </ul>
 </body>
 </html>
