@@ -1,13 +1,61 @@
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    .box{
-        box-sizing: border-box;
-        background-color: #b9c941;
-        padding: 10px;
-        margin: 10px;
-        height: 140px;
-        width: 300px;
-        border-radius: 20px 10px;
-        -webkit-border-radius: 20px;
-        -moz-border-radius: 20px;
-        
-    }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.flor {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+
+.petala {
+    width: 50%;
+    height: 50%;
+    border: 2px solid #000;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.petala1 {
+    background-color: #FF6347;
+}
+
+.petala2 {
+    background-color: #FFD700;
+}
+
+.petala3 {
+    background-color: #90EE90;
+}
+
+.petala4 {
+    background-color: #87CEEB;
+}
+
+.flower::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background-color: #000;
+    border-radius: 50%;
+}
