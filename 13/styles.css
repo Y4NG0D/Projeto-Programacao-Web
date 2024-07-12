@@ -48,7 +48,42 @@ body {
     background-color: #87CEEB;
 }
 
-.flor::before {
+.bolota {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+
+.bola {
+    width: 50%;
+    height: 50%;
+    border: 2px solid #000;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bola1 {
+    background-color: #FF6347;
+}
+
+.bola2 {
+    background-color: #FFD700;
+}
+
+.bola3 {
+    background-color: #90EE90;
+}
+
+.bola4 {
+    background-color: #87CEEB;
+}
+
+.bolota::before {
     content: "";
     position: absolute;
     top: 50%;
