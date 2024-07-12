@@ -13,7 +13,7 @@
     height: 300px;
     margin: 50px;
     box-sizing: border-box;
-    box-shadow: 10px 10px 5px #888888;
+    box-shadow: 25px 5px #888888;
 }
 
 .box2 {
@@ -22,7 +22,7 @@
     height: 300px;
     margin: 50px;
     box-sizing: border-box;
-    box-shadow: 10px 10px 5px #888888;
+    box-shadow: 5px 5px #888888;
 }
 
 .box3 {
@@ -31,7 +31,7 @@
     height: 300px;
     margin: 50px;
     box-sizing: border-box;
-    box-shadow: 10px 10px 5px #888888;
+    box-shadow: 20px 5px #888888;
 }
 
 .box4 {
@@ -40,7 +40,7 @@
     height: 300px;
     margin: 50px;
     box-sizing: border-box;
-    box-shadow: 10px 10px 5px #888888;
+    box-shadow: 15px 5px #888888;
 }
 
 .box h1 {
