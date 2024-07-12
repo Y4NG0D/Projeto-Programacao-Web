@@ -34,18 +34,22 @@ body {
 
 .petala1 {
     background-color: #FF6347;
+    border-top-left-radius: 50%;
 }
 
 .petala2 {
     background-color: #FFD700;
+    border-top-right-radius: 50%;
 }
 
 .petala3 {
     background-color: #90EE90;
+    border-bottom-left-radius: 50%;
 }
 
 .petala4 {
     background-color: #87CEEB;
+    border-bottom-right-radius: 50%;
 }
 
 .bolota {
@@ -54,6 +58,8 @@ body {
     width: 300px;
     height: 300px;
     position: relative;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .bola {
@@ -81,16 +87,4 @@ body {
 
 .bola4 {
     background-color: #87CEEB;
-}
-
-.bolota::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    background-color: #000;
-    border-radius: 50%;
 }
