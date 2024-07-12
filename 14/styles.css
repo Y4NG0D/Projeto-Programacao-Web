@@ -1,5 +1,5 @@
 .box {
-    background: url(14/img/camera.png);
+    background: url('14/img/camera.png');
     width: 300px;
     height: 300px;
     margin: 50px;
@@ -17,7 +17,7 @@
 }
 
 .box2 {
-    background: linear-gradient(to top left yellow, red);
+    background: linear-gradient(to top left, yellow, red);
     width: 300px;
     height: 300px;
     margin: 50px;
@@ -26,7 +26,7 @@
 }
 
 .box3 {
-    background: linear-gradient(to bottom left blue, pink, green, red);
+    background: linear-gradient(to bottom left, blue, pink, green, red);
     width: 300px;
     height: 300px;
     margin: 50px;
@@ -44,6 +44,6 @@
 }
 
 .box h1 {
-    background: rgb(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.5);
     text-shadow: 3px 3px 3px orange;
 }
