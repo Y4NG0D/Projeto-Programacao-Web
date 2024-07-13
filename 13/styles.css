@@ -1,5 +1,4 @@
-/* Define o box-sizing, margem e padding padrão para todos os elementos */
-* {
+{
     box-sizing: border-box; /* Inclui bordas e padding no cálculo da largura e altura dos elementos */
     margin: 0; /* Remove a margem padrão de todos os elementos */
     padding: 0; /* Remove o padding padrão de todos os elementos */
@@ -39,25 +38,25 @@ body {
 /* Define a cor e o arredondamento do canto superior esquerdo da primeira pétala */
 .petala1 {
     background-color: #FF6347; /* Define a cor de fundo como vermelho tomate */
-    border-top-left-radius: 50%; /* Arredonda o canto superior esquerdo */
+    border-top-left-radius: 80%; /* Arredonda o canto superior esquerdo */
 }
 
 /* Define a cor e o arredondamento do canto superior direito da segunda pétala */
 .petala2 {
     background-color: #FFD700; /* Define a cor de fundo como dourado */
-    border-top-right-radius: 50%; /* Arredonda o canto superior direito */
+    border-top-right-radius: 80%; /* Arredonda o canto superior direito */
 }
 
 /* Define a cor e o arredondamento do canto inferior esquerdo da terceira pétala */
 .petala3 {
     background-color: #90EE90; /* Define a cor de fundo como verde claro */
-    border-bottom-left-radius: 50%; /* Arredonda o canto inferior esquerdo */
+    border-bottom-left-radius: 80%; /* Arredonda o canto inferior esquerdo */
 }
 
 /* Define a cor e o arredondamento do canto inferior direito da quarta pétala */
 .petala4 {
     background-color: #87CEEB; /* Define a cor de fundo como azul claro */
-    border-bottom-right-radius: 50%; /* Arredonda o canto inferior direito */
+    border-bottom-right-radius: 80%; /* Arredonda o canto inferior direito */
 }
 
 /* Define o contêiner da bolota, com largura e altura fixas, posicionamento relativo, bordas arredondadas e overflow oculto */
