@@ -42,25 +42,25 @@ body {
 
 .petala2 {
     background-color: #FFD700;
-    border-top-right-radius: 19%;
-    border-top-left-radius: 220%;
-    border-bottom-left-radius: 50%;
+    border-top-right-radius: 40%;
+    border-top-left-radius: 230%;
+    border-bottom-left-radius: 20%;
     border-bottom-right-radius: 220%;
 }
 
 .petala3 {
     background-color: #90EE90;
-    border-top-right-radius: 43%;
-    border-top-left-radius: 220%;
-    border-bottom-left-radius: 50%;
+    border-top-right-radius: 20%;
+    border-top-left-radius: 230%;
+    border-bottom-left-radius: 40%;
     border-bottom-right-radius: 220%;
 }
 
 .petala4 {
     background-color: #87CEEB;
-    border-top-left-radius: 90%;
+    border-top-left-radius: 45%;
     border-bottom-left-radius: 300%;
-    border-bottom-right-radius: 45%;
+    border-bottom-right-radius: 90%;
     border-top-right-radius: 330%;
 }
 
