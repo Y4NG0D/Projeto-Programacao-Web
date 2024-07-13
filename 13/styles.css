@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+=======
+* {
+    box-sizing: border-box; /* Inclui bordas e padding no cálculo da largura e altura dos elementos */
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o padding padrão de todos os elementos */
+>>>>>>> Stashed changes
 }
 
 body {
@@ -33,23 +40,52 @@ body {
 }
 
 .petala1 {
+<<<<<<< Updated upstream
     background-color: #FF6347;
     border-top-left-radius: 80%;
+=======
+        background-color: #FF6347;
+        border-top-left-radius: 90%;
+        border-bottom-left-radius: 300%;
+        border-bottom-right-radius: 45%;
+        border-top-right-radius: 330%;
+>>>>>>> Stashed changes
 }
 
 .petala2 {
     background-color: #FFD700;
+<<<<<<< Updated upstream
     border-top-right-radius: 80%;
+=======
+    border-top-right-radius: 19%;
+    border-top-left-radius: 220%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 220%;
+>>>>>>> Stashed changes
 }
 
 .petala3 {
     background-color: #90EE90;
+<<<<<<< Updated upstream
     border-bottom-left-radius: 80%;
+=======
+    border-top-right-radius: 43%;
+    border-top-left-radius: 220%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 220%;
+>>>>>>> Stashed changes
 }
 
 .petala4 {
+<<<<<<< Updated upstream
     background-color: #87CEEB;
     border-bottom-right-radius: 80%;
+=======
+    border-top-left-radius: 90%;
+    border-bottom-left-radius: 300%;
+    border-bottom-right-radius: 45%;
+    border-top-right-radius: 330%;
+>>>>>>> Stashed changes
 }
 
 .bolota {
