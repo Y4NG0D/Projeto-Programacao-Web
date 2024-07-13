@@ -2,7 +2,7 @@
     box-sizing: border-box; 
     margin: 0; 
     padding: 0; 
-
+}
 
 body {
     display: flex;
@@ -33,11 +33,11 @@ body {
 }
 
 .petala1 {
-        background-color: #FF6347;
-        border-top-left-radius: 90%;
-        border-bottom-left-radius: 300%;
-        border-bottom-right-radius: 45%;
-        border-top-right-radius: 330%;
+    background-color: #FF6347;
+    border-top-left-radius: 90%;
+    border-bottom-left-radius: 300%;
+    border-bottom-right-radius: 45%;
+    border-top-right-radius: 330%;
 }
 
 .petala2 {
