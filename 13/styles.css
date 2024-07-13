@@ -1,90 +1,104 @@
-{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* Define o box-sizing, margem e padding padrão para todos os elementos */
+* {
+    box-sizing: border-box; /* Inclui bordas e padding no cálculo da largura e altura dos elementos */
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o padding padrão de todos os elementos */
 }
 
+/* Centraliza o conteúdo no corpo da página e define o fundo e a fonte */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    display: flex; /* Usa o Flexbox para centralizar o conteúdo */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    height: 100vh; /* Define a altura do corpo como 100% da altura da viewport */
+    background-color: #f0f0f0; /* Define a cor de fundo do corpo */
+    font-family: Arial, sans-serif; /* Define a família de fontes para o corpo */
 }
 
+/* Define o contêiner da flor, com largura e altura fixas e posicionamento relativo */
 .flor {
-    display: flex;
-    flex-wrap: wrap;
-    width: 300px;
-    height: 300px;
-    position: relative;
+    display: flex; /* Usa o Flexbox para alinhar os elementos filhos */
+    flex-wrap: wrap; /* Permite que os elementos filhos quebrem a linha e se alinhem em múltiplas linhas */
+    width: 300px; /* Define a largura do contêiner */
+    height: 300px; /* Define a altura do contêiner */
+    position: relative; /* Permite o uso de posicionamento absoluto para elementos filhos */
 }
 
+/* Define as pétalas da flor, com largura e altura de 50%, borda, sem margem nem padding, e centraliza o conteúdo */
 .petala {
-    width: 50%;
-    height: 50%;
-    border: 2px solid #000;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 50%; /* Define a largura como 50% do contêiner pai */
+    height: 50%; /* Define a altura como 50% do contêiner pai */
+    border: 2px solid #000; /* Define uma borda preta de 2 pixels */
+    margin: 0; /* Remove a margem */
+    padding: 0; /* Remove o padding */
+    display: flex; /* Usa o Flexbox para centralizar o conteúdo */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
 }
 
+/* Define a cor e o arredondamento do canto superior esquerdo da primeira pétala */
 .petala1 {
-    background-color: #FF6347;
-    border-top-left-radius: 50%;
+    background-color: #FF6347; /* Define a cor de fundo como vermelho tomate */
+    border-top-left-radius: 50%; /* Arredonda o canto superior esquerdo */
 }
 
+/* Define a cor e o arredondamento do canto superior direito da segunda pétala */
 .petala2 {
-    background-color: #FFD700;
-    border-top-right-radius: 50%;
+    background-color: #FFD700; /* Define a cor de fundo como dourado */
+    border-top-right-radius: 50%; /* Arredonda o canto superior direito */
 }
 
+/* Define a cor e o arredondamento do canto inferior esquerdo da terceira pétala */
 .petala3 {
-    background-color: #90EE90;
-    border-bottom-left-radius: 50%;
+    background-color: #90EE90; /* Define a cor de fundo como verde claro */
+    border-bottom-left-radius: 50%; /* Arredonda o canto inferior esquerdo */
 }
 
+/* Define a cor e o arredondamento do canto inferior direito da quarta pétala */
 .petala4 {
-    background-color: #87CEEB;
-    border-bottom-right-radius: 50%;
+    background-color: #87CEEB; /* Define a cor de fundo como azul claro */
+    border-bottom-right-radius: 50%; /* Arredonda o canto inferior direito */
 }
 
+/* Define o contêiner da bolota, com largura e altura fixas, posicionamento relativo, bordas arredondadas e overflow oculto */
 .bolota {
-    display: flex;
-    flex-wrap: wrap;
-    width: 300px;
-    height: 300px;
-    position: relative;
-    border-radius: 50%;
-    overflow: hidden;
+    display: flex; /* Usa o Flexbox para alinhar os elementos filhos */
+    flex-wrap: wrap; /* Permite que os elementos filhos quebrem a linha e se alinhem em múltiplas linhas */
+    width: 300px; /* Define a largura do contêiner */
+    height: 300px; /* Define a altura do contêiner */
+    position: relative; /* Permite o uso de posicionamento absoluto para elementos filhos */
+    border-radius: 50%; /* Arredonda todas as bordas do contêiner para formar um círculo */
+    overflow: hidden; /* Esconde o conteúdo que excede as bordas arredondadas */
 }
 
+/* Define os quadrantes da bolota, com largura e altura de 50%, borda, sem margem nem padding, e centraliza o conteúdo */
 .bola {
-    width: 50%;
-    height: 50%;
-    border: 2px solid #000;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 50%; /* Define a largura como 50% do contêiner pai */
+    height: 50%; /* Define a altura como 50% do contêiner pai */
+    border: 2px solid #000; /* Define uma borda preta de 2 pixels */
+    margin: 0; /* Remove a margem */
+    padding: 0; /* Remove o padding */
+    display: flex; /* Usa o Flexbox para centralizar o conteúdo */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
 }
 
+/* Define a cor de fundo do primeiro quadrante da bolota */
 .bola1 {
-    background-color: #FF6347;
+    background-color: #FF6347; /* Define a cor de fundo como vermelho tomate */
 }
 
+/* Define a cor de fundo do segundo quadrante da bolota */
 .bola2 {
-    background-color: #FFD700;
+    background-color: #FFD700; /* Define a cor de fundo como dourado */
 }
 
+/* Define a cor de fundo do terceiro quadrante da bolota */
 .bola3 {
-    background-color: #90EE90;
+    background-color: #90EE90; /* Define a cor de fundo como verde claro */
 }
 
+/* Define a cor de fundo do quarto quadrante da bolota */
 .bola4 {
-    background-color: #87CEEB;
+    background-color: #87CEEB; /* Define a cor de fundo como azul claro */
 }
