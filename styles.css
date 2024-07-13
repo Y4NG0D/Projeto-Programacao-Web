@@ -25,11 +25,11 @@ ul {
 }
 
 li {
-    background-color: #f8ff8a;
+    background-color: #fff;
     padding: 10px;
     margin-bottom: 12px;
     border-radius: 8px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 20px rgb(34 204 255)
 }
 
 footer {
