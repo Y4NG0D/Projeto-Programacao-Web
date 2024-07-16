@@ -1,9 +1,9 @@
 .box{
   position: relative;
-  left: 10px;
-  top: 10px;
-  width: 50px;
-  height: 50px;
+  left: 100px;
+  top: 100px;
+  width: 500px;
+  height: 500px;
   background: red;
   animation-name: meuAnime;
   animation-duration: 5s;
@@ -19,11 +19,11 @@
 
 @keyframes meuAnime {
   from{
-    left: 10px;
+    left: 100px;
   }
   to{
-    left: 50px;
+    left: 500px;
     background: blue;
-    border-radius: 100px;
+    border-radius: 1000px;
   }
 }
