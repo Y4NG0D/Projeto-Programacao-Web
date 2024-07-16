@@ -1,0 +1,29 @@
+.box{
+  position: relative;
+  left: 10px;
+  top: 10px;
+  width: 50px;
+  height: 50px;
+  background: red;
+  animation-name: meuAnime;
+  animation-duration: 5s;
+  animation-delay: 3s;
+  animation-iteration-count: 4;
+  animation: meuAnime 5s 3s 3 alternate;
+}
+
+.box:hover{
+  border: solid 5px black;
+  transition: border 3s 2s
+}
+
+@keyframes meuAnime {
+  from{
+    left: 10px;
+  }
+  to{
+    left: 50px;
+    background: blue;
+    border-radius: 100px;
+  }
+}
