@@ -1,9 +1,9 @@
 .box {
   position: relative;
-  left: 100px;
-  top: 100px;
-  width: 500px;
-  height: 500px;
+  left: 80px;
+  top: 80px;
+  width: 450px;
+  height: 450px;
   background: red;
   animation-name: meuAnime;
   animation-duration: 5s;
@@ -24,7 +24,7 @@
   to {
     left: 500px;
     background: blue;
-    border-radius: 1000px;
+    border-radius: 250px;
   }
 }
 
