@@ -32,8 +32,8 @@
   0% {
     transform: rotate(0deg);
     background-color: red;
-    width: 500px;
-    height: 500px;
+    width: 450px;
+    height: 450px;
   }
   25% {
     transform: rotate(90deg);
@@ -56,5 +56,8 @@
 .box:after {
   content: '';
   display: block;
+  width: 100%;
+  height: 100%;
   animation: giroColorido 4s infinite;
+  animation-delay: 18s; /* Atraso para começar após meuAnime (5s * 3 iterações + 3s delay) */
 }
