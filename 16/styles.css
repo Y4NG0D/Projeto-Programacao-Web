@@ -1,0 +1,9 @@
+.custom-button {
+    background-color: #4682B4; /* cor de fundo */
+    border-color: #191970 /* cor da borda */
+}
+
+.custom-button:hover {
+    background-color: #191970 /* cor de fundo ao passar o mouse */
+    border-color: #4682B4; /* cor da borda ao passar o mouse */
+}
