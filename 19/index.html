@@ -3,24 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Botões/Imagens Responsivos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 </head>
 <body>
-    <div class="container">
-        <div class="row">
+    <div class="container mt-5">
+        <!-- Botões e Imagens -->
+        <div class="row mb-4">
             <div class="col-sm-6">
                 <h1>Botões Padrões</h1>
-            </div>
-            <div class="col-sm-6">
-                <h1>Tipos de Botões</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
                 <a href="#" class="btn btn-default">Botão link</a>
                 <input type="submit" class="btn btn-default" value="Botão submit">
                 <button class="btn btn-default">Botão Button</button>
@@ -31,69 +23,65 @@
                 <button class="btn btn-warning">Botão</button>
                 <button class="btn btn-info">Botão</button>
                 <button class="btn btn-link">Botão</button>
-                <button class="btn btn-default btn-xs">Botão</button>
+                <button class="btn btn-default btn-sm">Botão</button>
                 <button class="btn btn-primary btn-sm">Botão</button>
                 <button class="btn btn-success btn-md">Botão</button>
                 <button class="btn btn-danger btn-lg">Botão</button>
             </div>
-        </div>
-        <div class="row">
             <div class="col-sm-6">
                 <h1>Imagem Responsiva</h1>
                 <img src="imagens/uvas.png" class="img-fluid" alt="Uvas Responsivas">
             </div>
+        </div>
+        <div class="row mb-4">
             <div class="col-sm-6">
                 <h1>Imagem Não Responsiva</h1>
                 <img src="imagens/uvas.png" alt="Uvas Não Responsivas">
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
                 <h1>Formas em Imagem</h1>
                 <img src="imagens/uvas200.png" class="rounded-circle" alt="Uvas Circular">
                 <img src="imagens/uvas200.png" class="rounded" alt="Uvas Arredondadas">
             </div>
         </div>
-    </div>
-    <div class="container mt-5">
+
+        <!-- Perfil de Usuário -->
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="card">
                     <div class="card-header text-center">
                         <h3>User Profile</h3>
                     </div>
-                    <div class="card-body">
-                        <div class="text-center">
-                            <img src="https://via.placeholder.com/150" class="rounded-circle" alt="Foto de Perfil">
-                            <h5 class="card-title mt-3">Nina Mcintire</h5>
-                            <p class="card-text">Software Engineer</p>
-                        </div>
+                    <div class="card-body text-center">
+                        <img src="https://via.placeholder.com/150" class="rounded-circle border border-primary" alt="Foto de Perfil">
+                        <h5 class="card-title mt-3">Nina Mcintire</h5>
+                        <p class="card-text text-muted">Software Engineer</p>
                         <hr>
                         <div class="row">
                             <div class="col-md-6">
-                                <p class="card-text">Followers:</p>
+                                <p class="card-text"><strong>Followers:</strong></p>
                             </div>
-                            <div class="col-md-6">
-                                <p class="card-text text-right">1,322</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p class="card-text">Following:</p>
-                            </div>
-                            <div class="col-md-6">
-                                <p class="card-text text-right">543</p>
+                            <div class="col-md-6 text-end">
+                                <p class="card-text"><strong>1,322</strong></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <p class="card-text">Friends:</p>
+                                <p class="card-text"><strong>Following:</strong></p>
                             </div>
-                            <div class="col-md-6">
-                                <p class="card-text text-right">13,287</p>
+                            <div class="col-md-6 text-end">
+                                <p class="card-text"><strong>543</strong></p>
                             </div>
                         </div>
-                        <div class="text-center mt-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="card-text"><strong>Friends:</strong></p>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <p class="card-text"><strong>13,287</strong></p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
                             <button class="btn btn-primary">Follow</button>
                         </div>
                     </div>
@@ -101,9 +89,7 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
