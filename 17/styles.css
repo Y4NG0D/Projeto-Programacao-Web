@@ -1,14 +1,14 @@
-.conteudo{
+.conteudo {
   background: #DCDCDC;
   border: 2px solid blue;
 }
 
-.linha{
-  background: #FFEBCD;
+.linha {
+  background: #87CEEB;
   border: 2px solid black;
 }
 
-.linha{
-  background: #87CEEB;
+.coluna {
+  background: #FFEBCD;
   border: 2px solid black;
 }
