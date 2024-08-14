@@ -8,16 +8,34 @@
     <link rel="stylesheet" href="normalize.css">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .navbar-custom {
+            background-color: #ff0000; /* Cor de fundo vermelha */
+        }
+
+        .navbar-custom .navbar-nav .nav-link {
+            color: #ffffff; /* Cor das letras brancas */
+        }
+
+        .navbar-custom .navbar-nav .nav-link:hover {
+            color: #f0f0f0; /* Cor ao passar o mouse */
+        }
+
+        .navbar-custom .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <a class="navbar-brand" href="#">C-sharp Corner</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="mainNav">
+        <div class="collapse navbar-collapse justify-content-end" id="mainNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Vendas</a>
@@ -35,7 +53,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="minhaContaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Minha Conta
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="minhaContaDropdown">
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="minhaContaDropdown">
                         <li><a class="dropdown-item" href="#">Perfil</a></li>
                         <li><a class="dropdown-item" href="#">Configurações</a></li>
                         <li><a class="dropdown-item" href="#">Sair</a></li>
