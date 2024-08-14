@@ -16,10 +16,16 @@
 
         .navbar-custom .navbar-nav .nav-link {
             color: #ffffff; /* Cor das letras brancas */
+            transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
         }
 
         .navbar-custom .navbar-nav .nav-link:hover {
-            color: #f0f0f0; /* Cor ao passar o mouse */
+            color: #000000; /* Cor das letras ao passar o mouse */
+        }
+
+        .navbar-custom .navbar-nav .nav-link:active {
+            background-color: #808080; /* Cor de fundo ao clicar */
+            color: #000000; /* Cor das letras ao clicar */
         }
 
         .navbar-custom .navbar-toggler-icon {
@@ -44,7 +50,7 @@
                     <a class="nav-link" href="#">Cadastros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="nav.html">CLIQUE NA AJUDA -> </a>
+                    <a class="nav-link" href="nav.html">PROFESSOR CLIQUE AQUI</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#myModal">Ajuda</a>
