@@ -130,8 +130,7 @@
                         <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fas fa-trash-alt"></i></button>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">7</th>
+                <th scope="row">7</th>
                     <td>Strogonoff</td>
                     <td><span class="badge badge-success">Ativo</span></td>
                     <td>
@@ -144,75 +143,72 @@
             </tbody>
         </table>
 
-        <!-- Pagination -->
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Anterior">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Próximo">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    <!-- Modal de adicionar produto -->
-    <div class="modal fade" id="addProdutoModal" tabindex="-1" aria-labelledby="addProdutoModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addProdutoModalLabel">Adicionar Produto</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form id="addProdutoForm">
+        <!-- Modal para adicionar novo produto -->
+        <div class="modal fade" id="addProdutoModal" tabindex="-1" aria-labelledby="addProdutoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addProdutoModalLabel">Novo Produto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="produtoDescricao">Descrição</label>
-                            <input type="text" class="form-control" id="produtoDescricao" placeholder="Insira a descrição do produto" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="produtoSituacao">Situação</label>
-                            <select class="form-control" id="produtoSituacao" required>
-                                <option value="Ativo">Ativo</option>
-                                <option value="Inativo">Inativo</option>
-                            </select>
-                        </div>
+                        <form id="novoProdutoForm">
+                            <div class="form-group">
+                                <label for="produtoDescricao">Descrição</label>
+                                <input type="text" class="form-control" id="produtoDescricao" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="produtoSituacao">Situação</label>
+                                <select class="form-control" id="produtoSituacao" required>
+                                    <option>Ativo</option>
+                                    <option>Inativo</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Adicionar Produto</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
+
     </div>
 
+    <!-- Scripts necessários -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
 
-            $('#addProdutoForm').submit(function(event) {
+            $('#novoProdutoForm').on('submit', function (event) {
                 event.preventDefault();
-                alert('Produto adicionado com sucesso!');
+                // Aqui você pode adicionar o código para inserir o produto na lista
+                alert('Produto Inserido');
                 $('#addProdutoModal').modal('hide');
-                // Aqui você pode adicionar o código para realmente adicionar o produto na tabela
+            });
+
+            $('#pesquisarBtn').click(function () {
+                const descricao = $('#descricao').val().toLowerCase();
+                $('tbody tr').each(function () {
+                    const texto = $(this).find('td:first').text().toLowerCase();
+                    if (texto.includes(descricao)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+
+            $('#recarregarBtn').click(function () {
+                $('#descricao').val('');
+                $('tbody tr').show();
             });
         });
     </script>
-
 </body>
 
 </html>
