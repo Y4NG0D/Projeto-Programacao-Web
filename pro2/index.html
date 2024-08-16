@@ -10,6 +10,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <title>Gerenciamento de Produtos</title>
 </head>
+
 <body>
 
     <!-- Navbar -->
@@ -18,7 +19,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link btn btn-outline-primary" href="#"><i class="fas fa-clipboard-list"></i> Pedidos Recentes</a>
@@ -129,7 +130,8 @@
                         <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fas fa-trash-alt"></i></button>
                     </td>
                 </tr>
-                <th scope="row">7</th>
+                <tr>
+                    <th scope="row">7</th>
                     <td>Strogonoff</td>
                     <td><span class="badge badge-success">Ativo</span></td>
                     <td>
@@ -144,65 +146,73 @@
 
         <!-- Pagination -->
         <nav aria-label="Page navigation">
-            <ul class="pagination">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Anterior">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Próximo">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
 
-    <!-- Modal para adicionar produto -->
+    <!-- Modal de adicionar produto -->
     <div class="modal fade" id="addProdutoModal" tabindex="-1" aria-labelledby="addProdutoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addProdutoModalLabel">Adicionar Produto</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form id="addProdutoForm">
+                <form id="addProdutoForm">
+                    <div class="modal-body">
                         <div class="form-group">
-                            <label for="nomeProduto">Nome do Produto</label>
-                            <input type="text" class="form-control" id="nomeProduto" required>
+                            <label for="produtoDescricao">Descrição</label>
+                            <input type="text" class="form-control" id="produtoDescricao" placeholder="Insira a descrição do produto" required>
                         </div>
                         <div class="form-group">
-                            <label for="precoProduto">Preço</label>
-                            <input type="number" class="form-control" id="precoProduto" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="categoriaProduto">Categoria</label>
-                            <select class="form-control" id="categoriaProduto" required>
-                                <option value="Alimentos">Alimentos</option>
-                                <option value="Bebidas">Bebidas</option>
-                                <option value="Sobremesas">Sobremesas</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="statusProduto">Status</label>
-                            <select class="form-control" id="statusProduto" required>
+                            <label for="produtoSituacao">Situação</label>
+                            <select class="form-control" id="produtoSituacao" required>
                                 <option value="Ativo">Ativo</option>
                                 <option value="Inativo">Inativo</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Adicionar</button>
-                    </form>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Adicionar Produto</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript do Bootstrap e FontAwesome -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('[data-toggle="tooltip"]').tooltip();
+
+            $('#addProdutoForm').submit(function(event) {
+                event.preventDefault();
+                alert('Produto adicionado com sucesso!');
+                $('#addProdutoModal').modal('hide');
+                // Aqui você pode adicionar o código para realmente adicionar o produto na tabela
+            });
         });
     </script>
+
 </body>
+
 </html>
