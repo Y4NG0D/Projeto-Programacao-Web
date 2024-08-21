@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Representação Sol, Terra e Lua com Orientação a Objetos</title>
+  <style>
+    /* Estilo opcional para o canvas */
+	
+	        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+	
+    #meuCanvas {
+      border: 1px solid #000;
+    }
+
+	
+
+  </style>
+</head>
+<body>
+
+  <canvas id="meuCanvas" width="400" height="400"></canvas>
+
+  <script>
+    class Astro {
+      constructor(x, y, raio, cor) {
+        this.x = x;
+        this.y = y;
+        this.raio = raio;
+        this.cor = cor;
+        this.angulo = 0;
+        this.velocidade = Math.random() * 0.05 + 0.02; // Define uma velocidade de órbita aleatória
+      }
+
+      desenhar(contexto) {
+        contexto.beginPath();
+        contexto.arc(this.x, this.y, this.raio, 0, Math.PI * 2);
+        contexto.fillStyle = this.cor;
+        contexto.fill();
+        contexto.closePath();
+      }
+    }
+
+    class Sol extends Astro {
+      constructor(x, y, raio, cor) {
+        super(x, y, raio, cor);
+      }
+    }
+
+    class Satelite extends Astro {
+      constructor(x, y, raio, cor, raioOrbita) {
+        super(x, y, raio, cor);
+        this.raioOrbita = raioOrbita;
+        this.angulo = 0; // Inicializa o ângulo do satélite
+        this.velocidade = Math.random() * 0.1 + 0.05; // Define uma velocidade de órbita aleatória para o satélite
+      }
+
+      acompanhar(planeta) {
+        // Calcula a posição do satélite com base na posição do planeta
+        this.x = planeta.x + this.raioOrbita * Math.cos(this.angulo);
+        this.y = planeta.y + this.raioOrbita * Math.sin(this.angulo);
+
+        // Atualiza o ângulo para a próxima posição na órbita do satélite ao redor do planeta
+        this.angulo += this.velocidade;
+      }
+    }
+
+    class Planeta extends Astro {
+      constructor(x, y, raio, cor, raioOrbitaX, raioOrbitaY) {
+        super(x, y, raio, cor);
+        this.raioOrbitaX = raioOrbitaX;
+        this.raioOrbitaY = raioOrbitaY;
+        this.satelites = [];
+      }
+
+      adicionarSatelite(satelite) {
+        this.satelites.push(satelite);
+      }
+
+      desenhar(contexto) {
+        // Desenha a órbita do planeta
+        contexto.beginPath();
+        contexto.strokeStyle = 'rgba(0, 0, 0, 0.5)';
+        contexto.ellipse(canvas.width / 2, canvas.height / 2, this.raioOrbitaX, this.raioOrbitaY, 0, 0, Math.PI * 2);
+        contexto.stroke();
+        contexto.closePath();
+
+        // Calcula a posição do planeta na órbita
+        this.x = canvas.width / 2 + this.raioOrbitaX * Math.cos(this.angulo);
+        this.y = canvas.height / 2 + this.raioOrbitaY * Math.sin(this.angulo);
+
+        // Desenha o planeta
+        super.desenhar(contexto);
+
+        // Desenha os satélites do planeta
+        for (let satelite of this.satelites) {
+          satelite.acompanhar(this);
+          satelite.desenhar(contexto);
+        }
+
+        // Atualiza o ângulo para a próxima posição na órbita
+        this.angulo += this.velocidade;
+      }
+    }
+
+    var canvas = document.getElementById('meuCanvas');
+    var contexto = canvas.getContext('2d');
+
+    var sol = new Sol(200, 200, 50, 'yellow');
+    var terra = new Planeta(200, 200, 10, 'blue', 150, 120); // Raio X e Y da órbita da Terra para criar a elipse
+    var mercurio = new Planeta(20, 20, 5, 'red', 75, 60);
+    var lua = new Satelite(0, 0, 5, 'gray', 30);
+
+    terra.adicionarSatelite(lua); // Adiciona a Lua como satélite da Terra
+
+    function animar() {
+      setInterval(function() {
+	  
+        contexto.clearRect(0, 0, canvas.width, canvas.height);
+        sol.desenhar(contexto);
+        terra.desenhar(contexto);
+        mercurio.desenhar(contexto);
+		
+      }, 50);
+    }
+
+    animar();
+  </script>
+</body>
+</html>
