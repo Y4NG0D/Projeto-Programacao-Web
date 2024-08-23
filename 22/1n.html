@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Números</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+  <style>
+    #numberContainer {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    min-height: 50px;
+}
+  </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Gerador de Números</h1>
+        <button class="btn btn-primary" id="generateBtn">Gerar Números</button>
+        <div id="numberContainer" class="mt-4"></div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+      document.getElementById('generateBtn').addEventListener('click', function() {
+    // Limpa a div antes de adicionar novos números
+    const container = document.getElementById('numberContainer');
+    container.innerHTML = '';
+
+    // Lê o valor de n através do prompt
+    const n = parseInt(prompt('Digite um número (n):'), 10);
+
+    // Verifica se o valor é um número válido
+    if (!isNaN(n) && n > 0) {
+        // Cria e adiciona os números à div
+        for (let i = 1; i <= n; i++) {
+            const numberElement = document.createElement('div');
+            numberElement.textContent = i;
+            container.appendChild(numberElement);
+        }
+    } else {
+        alert('Por favor, digite um número válido.');
+    }
+});
+    </script>
+</body>
+</html>
 
