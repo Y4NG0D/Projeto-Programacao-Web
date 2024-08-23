@@ -48,16 +48,16 @@
         }
 
         .form-control {
-            padding-right: 40px;
+            padding-left: 40px;
         }
 
         .form-group .input-icon {
             position: absolute;
-            right: 10px;
+            left: 10px;
             top: 50%;
             transform: translateY(-50%);
             color: #aaa;
-            font-size: 20px;
+            font-size: 18px;
         }
 
         .btn-primary {
@@ -118,6 +118,22 @@
         .remember-me input {
             margin-right: 5px;
         }
+
+        .additional-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .additional-links a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .additional-links a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -164,6 +180,10 @@
                                 <span class="icon"><i class="fab fa-google"></i></span>
                                 Login com Google
                             </a>
+                        </div>
+                        <div class="additional-links">
+                            <a href="#">Esqueci minha Senha</a>
+                            <a href="#">Registrar nova conta</a>
                         </div>
                     </div>
                     <div class="modal-footer">
