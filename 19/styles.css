@@ -1,47 +1,36 @@
-/* Define a largura da div do perfil do usuário */
-.perfil-usuario {
-    max-width: 400px; /* Ajuste a largura máxima da caixa */
-    margin: auto; /* Centraliza a caixa no meio da página */
-}
-
-/* Estiliza a parte superior da caixa do perfil */
+/* Estilização da seção de topo do perfil */
 .topo-perfil {
-    background-color: #007bff; /* Define o fundo azul para o topo da caixa */
-    color: white; /* Define a cor do texto no topo da caixa como branco */
-    padding: 15px; /* Adiciona preenchimento ao redor do conteúdo do topo */
-    border-radius: 8px 8px 0 0; /* Arredonda os cantos superiores da caixa */
+    background-color: #e9ecef; /* Cor de fundo do topo */
+    padding: 10px;
+    border-bottom: 1px solid #ccc; /* Borda inferior */
 }
 
-/* Estiliza a imagem do perfil para ser circular e centralizada */
-.perfil-usuario .card-body img {
-    width: 150px; /* Define a largura da imagem */
-    height: 150px; /* Define a altura da imagem */
-    object-fit: cover; /* Garante que a imagem preencha o espaço de forma proporcional */
-    margin-bottom: 20px; /* Adiciona espaço abaixo da imagem */
+/* Estilização da imagem de perfil */
+.perfil-usuario img {
+    border: 5px solid #fff; /* Borda branca ao redor da imagem */
 }
 
-/* Define o estilo do título e do texto do card */
-.perfil-usuario .card-title {
-    font-size: 1.5rem; /* Aumenta o tamanho do título */
-    font-weight: bold; /* Deixa o título em negrito */
+/* Botão de seguir */
+.btn-primary {
+    width: 100%; /* Largura total do botão */
+    background-color: #007bff;
+    border-color: #007bff;
 }
 
-.perfil-usuario .card-text {
-    font-size: 1rem; /* Define o tamanho do texto */
-    color: #6c757d; /* Define a cor padrão do texto */
+/* Ajustes na estilização do texto */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-/* Estiliza o botão de 'Follow' */
-.perfil-usuario .btn-primary {
-    width: 100%; /* Define o botão para ocupar toda a largura disponível */
-    padding: 10px; /* Adiciona preenchimento dentro do botão */
-    font-size: 1.1rem; /* Aumenta o tamanho do texto do botão */
-    border-radius: 25px; /* Arredonda os cantos do botão */
+.card-text {
+    font-size: 1rem;
 }
 
-/* Adiciona espaçamento entre as linhas de texto */
-.perfil-usuario .row {
-    margin-bottom: 10px; /* Adiciona espaçamento entre as linhas */
+/* Estilo da caixa do perfil */
+.perfil-usuario {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 10px; /* Bordas arredondadas */
 }
 
 .btn-default {
@@ -49,21 +38,26 @@
         border: 1px solid #ccc;
         color: #333;
 }
+
 .btn-default:hover {
         background-color: #ccc;
 }
+
 .img-fluid {
         max-width: 100%;
         height: auto;
 }
+
 .rounded-circle {
         width: 150px;
         height: 150px;
 }
+
 .card {
         border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .card-header {
         background-color: #f8f9fa;
 }
