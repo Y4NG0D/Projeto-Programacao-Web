@@ -42,11 +42,13 @@
             // Solicita o texto ao usuário
             var userInput = prompt("Digite o texto que você deseja mostrar na modal:");
 
-            // Define o texto na div com id modalContent
-            document.getElementById("modalContent").innerText = userInput;
+            if (userInput !== null) {
+                // Define o texto na div com id modalContent
+                document.getElementById("modalContent").innerText = userInput;
 
-            // Exibe a modal
-            $('#myModal').modal('show');
+                // Exibe a modal
+                $('#myModal').modal('show');
+            }
         }
     </script>
 </body>
