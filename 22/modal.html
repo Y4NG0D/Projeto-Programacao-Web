@@ -8,6 +8,24 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- CSS Personalizado -->
     <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
         .modal-header {
             background-color: #007bff;
             color: #fff;
@@ -15,11 +33,25 @@
         .modal-footer {
             background-color: #f8f9fa;
         }
+        .modal-body {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .modal-title {
+            font-weight: bold;
+        }
+        .btn-close {
+            filter: invert(1);
+        }
     </style>
 </head>
 <body>
-    <!-- Botão para abrir a modal -->
-    <button type="button" class="btn btn-primary" id="abrirModalBtn">Mostrar Texto</button>
+    <div class="container text-center">
+        <!-- Botão para abrir a modal -->
+        <button type="button" class="btn btn-primary" id="abrirModalBtn">
+            <i class="bi bi-plus-circle"></i> Mostrar Texto
+        </button>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="janela" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
@@ -33,7 +65,9 @@
                     <!-- Conteúdo será inserido aqui pelo JavaScript -->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle"></i> Fechar
+                    </button>
                 </div>
             </div>
         </div>
@@ -43,6 +77,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
 
     <!-- Script JavaScript -->
     <script>
