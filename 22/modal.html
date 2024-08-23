@@ -3,27 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo Modal</title>
+    <title>Exemplo de Modal</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS Personalizado -->
+    <style>
+        .modal-header {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .modal-footer {
+            background-color: #f8f9fa;
+        }
+    </style>
 </head>
 <body>
     <!-- Botão para abrir a modal -->
     <button type="button" class="btn btn-primary" id="abrirModalBtn">Mostrar Texto</button>
 
     <!-- Modal -->
-    <div class="modal fade" id="janela" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="janela" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="modalTitulo">Título da Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div id="conteudoModal" class="modal-body">
                     <!-- Conteúdo será inserido aqui pelo JavaScript -->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
         </div>
@@ -51,4 +61,3 @@
     </script>
 </body>
 </html>
-
