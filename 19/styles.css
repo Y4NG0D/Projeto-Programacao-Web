@@ -12,7 +12,7 @@
 
 /* Botão de seguir */
 .btn-primary {
-    width: 200%; /* Largura total do botão */
+    width: 100%; /* Largura total do botão */
     background-color: #007bff;
     border-color: #007bff;
 }
