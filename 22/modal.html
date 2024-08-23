@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Modal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Botão para abrir a modal -->
+    <button type="button" class="btn btn-primary" id="abrirModalBtn">Mostrar Texto</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="janela" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="conteudoModal" class="modal-body">
+                    <!-- Conteúdo será inserido aqui pelo JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
+    <!-- Script JavaScript -->
+    <script>
+        // Função para mostrar o texto na modal
+        function mostrarTextoNaModal() {
+            var texto = prompt("Digite o texto para exibir na modal:");
+            if (texto) {
+                document.getElementById('conteudoModal').textContent = texto;
+                var janelaModal = new bootstrap.Modal(document.getElementById('janela'));
+                janelaModal.show();
+            }
+        }
+
+        // Adiciona um evento de clique ao botão
+        document.getElementById('abrirModalBtn').addEventListener('click', mostrarTextoNaModal);
+    </script>
+</body>
+</html>
 
