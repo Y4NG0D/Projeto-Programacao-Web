@@ -46,3 +46,20 @@ footer {
 .back-button:hover {
     background-color: #555;
 }
+
+h1 {
+    color: #343a40;
+}
+
+.btn {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+#resultado {
+    font-size: 2rem;
+    color: #007bff;
+    margin-top: 20px;
+    font-weight: bold;
+}
