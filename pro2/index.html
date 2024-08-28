@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <title>Gerenciamento de Produtos</title>
     <style>
@@ -44,7 +46,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
         <a class="navbar-brand" href="#">Sistema de Pedidos</a><i class="bi bi-basket2-fill"></i>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
@@ -83,7 +85,7 @@
         <div class="mb-3">
             <button type="button" class="btn btn-primary" id="pesquisarBtn"><i class="fas fa-search"></i> Pesquisar</button>
             <button type="button" class="btn btn-secondary" id="recarregarBtn"><i class="fas fa-sync-alt"></i> Recarregar</button>
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addProdutoModal"><i class="fas fa-plus"></i> Novo</button>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addProdutoModal"><i class="fas fa-plus"></i> Novo</button>
         </div>
 
         <!-- Tabela de produtos -->
@@ -100,11 +102,11 @@
                 <tr>
                     <th scope="row">1</th>
                     <td>Pizza</td>
-                    <td><span class="badge badge-success">Ativo</span></td>
+                    <td><span class="badge bg-success">Ativo</span></td>
                     <td>
-                        <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
-                        <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger btn-sm btn-excluir" data-toggle="tooltip" data-placement="top" title="Excluir" data-toggle="popover" data-html="true" data-content="<div>Deseja realmente remover esse registro?<br><button class='btn btn-success btn-sm btn-popover'><i class='fas fa-check'></i> Sim</button><button class='btn btn-danger btn-sm btn-popover'><i class='fas fa-times'></i> Não</button></div>"><i class="fas fa-trash-alt"></i></button>
+                        <button class="btn btn-info btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
+                        <button class="btn btn-warning btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm btn-excluir" data-bs-toggle="tooltip" data-bs-placement="top" title="Excluir" data-bs-toggle="popover" data-bs-html="true" data-bs-content="<div>Deseja realmente remover esse registro?<br><button class='btn btn-success btn-sm btn-popover'><i class='fas fa-check'></i> Sim</button><button class='btn btn-danger btn-sm btn-popover'><i class='fas fa-times'></i> Não</button></div>"><i class="fas fa-trash-alt"></i></button>
                     </td>
                 </tr>
                 <tr>
@@ -217,9 +219,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addProdutoModalLabel">Adicionar Produto</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="addProdutoForm">
@@ -253,18 +253,27 @@
         </div>
     </div>
 
-    <!-- JavaScript do Bootstrap e FontAwesome -->
+    <!-- Bootstrap JS (necessário para popover e modal) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         $(function () {
-            $('[data-toggle="tooltip"]').tooltip();
+            // Inicializar tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
 
-            // Initialize popovers
-            $('[data-toggle="popover"]').popover();
+            // Inicializar popovers
+            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl, {
+                    html: true
+                })
+            })
 
-            // Handle popover buttons
+            // Manipular os botões do popover
             $('body').on('click', '.btn-popover', function () {
                 let action = $(this).text().trim();
                 let button = $(this).closest('.popover').siblings('.btn-excluir');
