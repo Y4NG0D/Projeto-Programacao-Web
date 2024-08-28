@@ -19,20 +19,28 @@
 </head>
 <body>
     <div class="container mt-5">
-        <button type="button" class="btn btn-danger" id="deleteBtn" data-toggle="popover" title="Excluir Item">
+        <button type="button" class="btn btn-danger" id="deleteBtn">
             Excluir Item
         </button>
     </div>
 
     <script>
-        $(function () {
+        $(document).ready(function () {
+            // Inicializando o popover com conteúdo HTML
             $('#deleteBtn').popover({
                 html: true,
                 content: '<div class="popover-content">' +
                          '<button class="btn btn-success" id="confirmar">Sim</button>' +
                          '<button class="btn btn-secondary" id="cancelar">Não</button>' +
                          '</div>',
+                title: 'Excluir Item',
+                trigger: 'click',
                 sanitize: false
+            });
+
+            // Mostrar e esconder o popover
+            $('#deleteBtn').on('click', function () {
+                $(this).popover('toggle');
             });
 
             // Adicionar comportamento para os botões "Sim" e "Não"
