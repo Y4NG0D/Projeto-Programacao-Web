@@ -22,6 +22,11 @@
   max-width: 300px;
 }
 
+.btn-outline-primary {
+    color: #000000;
+    border-color: #007bff;
+}
+
 .popover-body {
   text-align: center;
 }
