@@ -6,10 +6,8 @@
     <title>Manipulação de Layouts com Box Model</title>
     <style>
         .box {
-            width: 100px;
-            height: 100px;
             margin: 10px;
-			color: white;
+            color: white;
             padding: 10px;
             border: 1px solid black;
             display: inline-block;
@@ -17,50 +15,57 @@
             line-height: 80px;
         }
     </style>
-	
-
-	
 </head>
 <body>
     <button onclick="listaBox()">Listar Boxes</button>
-	
-
-	
+    <button onclick="verificarCorBox()">Verificar Cor da Box</button>
+    
     <div id="containerBox"></div>
-   
 
- 
+    <script>
+        // Array atualizado com as novas propriedades dinâmicas
+        var lista_boxes = [
+            { cor: 'red', conteudo: 'Box 1', borderRadius: '10px', tamanho: 100 },
+            { cor: 'green', conteudo: 'Box 2', borderRadius: '20px', tamanho: 120 },
+            { cor: 'blue', conteudo: 'Box 3', borderRadius: '30px', tamanho: 140 },
+            { cor: 'purple', conteudo: 'Box 4', borderRadius: '40px', tamanho: 160 },
+            { cor: 'black', conteudo: 'Box 5', borderRadius: '50px', tamanho: 180 },
+        ];
+
+        // Função para criar uma box com base nas propriedades de cada item da lista
+        function criaBox(itemBox) {
+            var novaBox = document.createElement('div'); // cria um elemento div em tempo de execução
+            novaBox.className = 'box'; // define a class .box
+            novaBox.style.backgroundColor = itemBox.cor;
+            novaBox.style.borderRadius = itemBox.borderRadius;
+            novaBox.style.width = itemBox.tamanho + 'px';
+            novaBox.style.height = itemBox.tamanho + 'px';
+            novaBox.style.lineHeight = itemBox.tamanho - 20 + 'px'; // Ajusta a altura do texto para centralizar verticalmente
+            novaBox.textContent = itemBox.conteudo;
+            return novaBox;
+        }
+
+        // Função para listar todas as boxes no container
+        function listaBox(){
+            var containerBox = document.getElementById('containerBox');
+            containerBox.innerHTML = ''; // Limpa o container antes de listar as boxes
+            lista_boxes.forEach(function(itemBox) { // Itera sobre a lista de boxes criando novos elementos
+                var box = criaBox(itemBox);
+                containerBox.appendChild(box);
+            });
+        }
+
+        // Função para verificar a cor de uma box específica com base na posição
+        function verificarCorBox() {
+            var posicao = prompt("Informe a posição da box (1, 2, 3, etc.):");
+            posicao = parseInt(posicao) - 1; // Ajusta para índice de array (baseado em zero)
+
+            if (posicao >= 0 && posicao < lista_boxes.length) {
+                alert("A cor da Box " + (posicao + 1) + " é: " + lista_boxes[posicao].cor);
+            } else {
+                alert("Posição inválida! Informe um número entre 1 e " + lista_boxes.length);
+            }
+        }
+    </script>
 </body>
-	<script>
-	// Array genérico para criar várias caixas com estilos
-var lista_boxes = [
-    { cor: 'red', conteudo: 'Box 1' },
-    { cor: 'green', conteudo: 'Box 2' },
-    { cor: 'blue', conteudo: 'Box 3' },
-    { cor: 'purple', conteudo: 'Box 4' },
-    { cor: 'black', conteudo: 'Box 5' },
-];
-
-
-// Função para instanciar uma box com base nas propriedades de cada item da lista
-function criaBox(itemBox) {
-    var novaBox = document.createElement('div');// cria um elemento div em tempo de execução
-    novaBox.className = 'box'; // define a class .box
-    novaBox.style.backgroundColor = itemBox.cor;
-    novaBox.textContent = itemBox.conteudo;
-    return novaBox;
-}
-
-
-function listaBox(){
-	var containerBox = document.getElementById('containerBox');
-	lista_boxes.forEach(function(itemBox) {// var a lista de box criando novos elementos
-      		var box = criaBox(itemBox);
-            containerBox.appendChild(box);
-    });
-}
-     
-
-
-	</script>
 </html>
