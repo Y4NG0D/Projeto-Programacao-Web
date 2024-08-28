@@ -19,7 +19,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <button type="button" class="btn btn-danger" id="deleteBtn">
+        <button type="button" class="btn btn-danger" id="deleteBtn" data-toggle="popover" data-placement="bottom">
             Excluir Item
         </button>
     </div>
@@ -34,7 +34,7 @@
                          '<button class="btn btn-secondary" id="cancelar">Não</button>' +
                          '</div>',
                 title: 'Excluir Item',
-                trigger: 'click',
+                trigger: 'manual',
                 sanitize: false
             });
 
@@ -51,6 +51,13 @@
 
             $(document).on('click', '#cancelar', function () {
                 $('#deleteBtn').popover('hide');
+            });
+
+            // Fechar o popover ao clicar fora
+            $(document).on('click', function (e) {
+                if (!$(e.target).closest('#deleteBtn').length) {
+                    $('#deleteBtn').popover('hide');
+                }
             });
         });
     </script>
