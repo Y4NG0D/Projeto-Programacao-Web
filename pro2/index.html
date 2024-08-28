@@ -19,29 +19,31 @@
 </head>
 <body>
     <div class="container mt-5">
-        <button type="button" class="btn btn-danger" data-toggle="popover" title="Excluir Item" data-content='<div class="popover-content">
-            <button class="btn btn-success" id="confirmar">Sim</button>
-            <button class="btn btn-secondary" id="cancelar">Não</button>
-        </div>'>
+        <button type="button" class="btn btn-danger" id="deleteBtn" data-toggle="popover" title="Excluir Item">
             Excluir Item
         </button>
     </div>
 
     <script>
         $(function () {
-            $('[data-toggle="popover"]').popover({
+            $('#deleteBtn').popover({
                 html: true,
+                content: '<div class="popover-content">' +
+                         '<button class="btn btn-success" id="confirmar">Sim</button>' +
+                         '<button class="btn btn-secondary" id="cancelar">Não</button>' +
+                         '</div>',
                 sanitize: false
             });
-        });
 
-        // Adicionar comportamento para os botões "Sim" e "Não"
-        $(document).on('click', '#confirmar', function () {
-            alert('Item excluído!');
-        });
+            // Adicionar comportamento para os botões "Sim" e "Não"
+            $(document).on('click', '#confirmar', function () {
+                alert('Item excluído!');
+                $('#deleteBtn').popover('hide');
+            });
 
-        $(document).on('click', '#cancelar', function () {
-            $('[data-toggle="popover"]').popover('hide');
+            $(document).on('click', '#cancelar', function () {
+                $('#deleteBtn').popover('hide');
+            });
         });
     </script>
 </body>
