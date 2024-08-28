@@ -197,7 +197,7 @@
                         <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fas fa-trash-alt"></i></button>
                     </td>
                 </tr>
-                <!-- Outras linhas da tabela podem ser adicionadas aqui -->
+                <!-- Outras linhas da tabela... -->
             </tbody>
         </table>
 
@@ -261,10 +261,12 @@
         $(function () {
             $('[data-toggle="tooltip"]').tooltip();
 
-            // Initialize popovers
-            $('[data-toggle="popover"]').popover();
+            // Inicializar popovers
+            $('[data-toggle="popover"]').popover({
+                html: true
+            });
 
-            // Handle popover buttons
+            // Manipular os botões do popover
             $('body').on('click', '.btn-popover', function () {
                 let action = $(this).text().trim();
                 let button = $(this).closest('.popover').siblings('.btn-excluir');
