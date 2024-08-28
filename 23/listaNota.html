@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Consulta de Notas</title>
+
+    <script type="text/javascript">
+        var notas = [6.5, 8.0, 7.2, 9.1, 5.8, 7.5, 6.0, 8.4, 7.0, 9.5];
+
+        // Função para consultar a nota em uma determinada posição e verificar se é aprovativa
+        function consultarNota() {
+            var indice = prompt('Digite a posição da nota que deseja consultar (0 a 9):');
+            if (indice >= 0 && indice < notas.length) {
+                var nota = notas[indice];
+                if (nota >= 7.0) {
+                    alert('Nota: ' + nota + ' - Aprovado!');
+                } else {
+                    alert('Nota: ' + nota + ' - Reprovado!');
+                }
+            } else {
+                alert('Posição inválida! Por favor, insira um número entre 0 e 9.');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Consulta de Notas</h1>
+    <button onclick="consultarNota()">Consultar Nota</button>
+</body>
+</html>
