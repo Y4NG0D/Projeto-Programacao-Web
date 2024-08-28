@@ -1,0 +1,52 @@
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <script type="text/javascript">
+
+      var liguagens = Array();
+
+          liguagens[0] = 'Dart';
+          liguagens[1] = 'PHP';
+          liguagens[2] = 'Java';
+          liguagens[3] = 'Pyton';
+          liguagens[4] = 'Perl';
+          liguagens[5] = 'Ruby on Rails';
+          liguagens[6] = 'C ++';
+
+        
+        function criaListaLiguagens(){
+        	const container = document.getElementById('container');
+ 			liguagens.forEach(function(item,index) {
+			  container.innerHTML += (index) +  ' - ' +item+'<br>'
+			});    	 
+     }
+	 
+
+	 function posicaoLiguagens(){
+		var indice = prompt('Qual posição da lista deseja consultar?');
+	 	alert(liguagens[indice]);
+	 }
+
+    </script>
+
+  
+</head>
+
+	<body>
+  
+        <div id="container"></div>
+
+       <button onclick="criaListaLiguagens()">Criar Array</button> <br><br>
+       <button onclick="posicaoLiguagens()">Posição no Array</button>
+
+   </body>
+
+
+
+
+

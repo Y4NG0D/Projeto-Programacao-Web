@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação de Layouts com Box Model</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+			color: white;
+            padding: 10px;
+            border: 1px solid black;
+            display: inline-block;
+            text-align: center;
+            line-height: 80px;
+        }
+    </style>
+	
+
+	
+</head>
+<body>
+    <button onclick="listaBox()">Listar Boxes</button>
+	
+
+	
+    <div id="containerBox"></div>
+   
+
+ 
+</body>
+	<script>
+	// Array genérico para criar várias caixas com estilos
+var lista_boxes = [
+    { cor: 'red', conteudo: 'Box 1' },
+    { cor: 'green', conteudo: 'Box 2' },
+    { cor: 'blue', conteudo: 'Box 3' },
+    { cor: 'purple', conteudo: 'Box 4' },
+    { cor: 'black', conteudo: 'Box 5' },
+];
+
+
+// Função para instanciar uma box com base nas propriedades de cada item da lista
+function criaBox(itemBox) {
+    var novaBox = document.createElement('div');// cria um elemento div em tempo de execução
+    novaBox.className = 'box'; // define a class .box
+    novaBox.style.backgroundColor = itemBox.cor;
+    novaBox.textContent = itemBox.conteudo;
+    return novaBox;
+}
+
+
+function listaBox(){
+	var containerBox = document.getElementById('containerBox');
+	lista_boxes.forEach(function(itemBox) {// var a lista de box criando novos elementos
+      		var box = criaBox(itemBox);
+            containerBox.appendChild(box);
+    });
+}
+     
+
+
+	</script>
+</html>
