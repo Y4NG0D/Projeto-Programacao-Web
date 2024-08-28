@@ -9,6 +9,17 @@
     <script type="text/javascript">
         var notas = [6.5, 8.0, 7.2, 9.1, 5.8, 7.5, 6.0, 8.4, 7.0, 9.5];
 
+        // Função para exibir as notas na tela
+        function exibirNotas() {
+            const container = document.getElementById('containerNotas');
+            container.innerHTML = "<h2>Lista de Notas</h2>";
+            container.innerHTML += "<ul>";
+            notas.forEach(function(nota, index) {
+                container.innerHTML += "<li>Posição " + index + ": Nota " + nota + "</li>";
+            });
+            container.innerHTML += "</ul>";
+        }
+
         // Função para consultar a nota em uma determinada posição e verificar se é aprovativa
         function consultarNota() {
             var indice = prompt('Digite a posição da nota que deseja consultar (0 a 9):');
@@ -26,8 +37,9 @@
     </script>
 </head>
 
-<body>
+<body onload="exibirNotas()">
     <h1>Consulta de Notas</h1>
+    <div id="containerNotas"></div>
     <button onclick="consultarNota()">Consultar Nota</button>
 </body>
 </html>
