@@ -6,26 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
     <title>Gerenciamento de Produtos</title>
-    <style>
-        .navbar-nav .nav-link {
-            margin: 5px;
-        }
-        .table-hover tbody tr:hover {
-            background-color: #f1f1f1;
-        }
-        .pagination {
-            justify-content: center;
-        }
-    </style>
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
-        <a class="navbar-brand" href="#">Sistema de Pedidos</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
+        <a class="navbar-brand" href="#">Sistema de Pedidos</a><i class="bi bi-basket2-fill"></i>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
@@ -51,7 +40,6 @@
             </ul>
         </div>
     </nav>
-
     <!-- Container principal -->
     <div class="container mt-4">
         <!-- Formulário de pesquisa -->
@@ -62,7 +50,7 @@
 
         <!-- Botões de ação -->
         <div class="mb-3">
-            <button type="button" class="btn btn-primary" id="pesquisarBtn"><i class="fas fa-search"></i> Pesquisar</button>
+            <button type="button" class="btn btn-primary" id="pesquisarBtn" data-toggle="modal" data-target="#pesquisarModal"><i class="fas fa-search"></i> Pesquisar</button>
             <button type="button" class="btn btn-secondary" id="recarregarBtn"><i class="fas fa-sync-alt"></i> Recarregar</button>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addProdutoModal"><i class="fas fa-plus"></i> Novo</button>
         </div>
@@ -78,107 +66,106 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">21</th>
-                    <td>Goiabada</td>
-                    <td><span class="badge badge-success">Ativo</span></td>
-                    <td>
-                        <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
-                        <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fas fa-trash-alt"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">22</th>
-                    <td>Água Mineral</td>
-                    <td><span class="badge badge-success">Ativo</span></td>
-                    <td>
-                        <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
-                        <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fas fa-trash-alt"></i></button>
-                    </td>
-                </tr>
-                 <tr>
-                    <th scope="row">23</th>
-                    <td>Sushi</td>
-                    <td><span class="badge badge-success">Ativo</span></td>
-                    <td>
-                        <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
-                        <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fas fa-trash-alt"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">24</th>
-                    <td>Suco de Laranja</td>
-                    <td><span class="badge badge-success">Ativo</span></td>
-                    <td>
-                        <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
-                        <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fas fa-trash-alt"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">25</th>
-                    <td>Café</td>
-                    <td><span class="badge badge-success">Ativo</span></td>
-                    <td>
-                        <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
-                        <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fas fa-trash-alt"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">26</th>
-                    <td>Chá Mate</td>
-                    <td><span class="badge badge-secondary">Inativo</span></td>
-                    <td>
-                        <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
-                        <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fas fa-trash-alt"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">27</th>
-                    <td>Redbull</td>
-                    <td><span class="badge badge-secondary">Inativo</span></td>
-                    <td>
-                        <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
-                        <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fas fa-trash-alt"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">28</th>
-                    <td>Monster Energy Drink</td>
-                    <td><span class="badge badge-secondary">Inativo</span></td>
-                    <td>
-                        <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
-                        <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fas fa-trash-alt"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">29</th>
-                    <td>Sorvete</td>
-                    <td><span class="badge badge-secondary">Inativo</span></td>
-                    <td>
-                        <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
-                        <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fas fa-trash-alt"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">30</th>
-                    <td>Macarrão Penne</td>
-                    <td><span class="badge badge-secondary">Inativo</span></td>
-                    <td>
-                        <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
-                        <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fas fa-trash-alt"></i></button>
-                    </td>
-                </tr>
-                <!-- Outras linhas da tabela podem ser adicionadas aqui -->
+            <tr>
+                <th scope="row">21</th>
+                <td>Goiabada</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+                <td>
+                    <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm btn-excluir" data-toggle="modal" data-target="#confirmExclusaoModal" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">22</th>
+                <td>Água Mineral</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+                <td>
+                    <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm btn-excluir" data-toggle="modal" data-target="#confirmExclusaoModal" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
+             <tr>
+                <th scope="row">23</th>
+                <td>Sushi</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+                <td>
+                    <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm btn-excluir" data-toggle="modal" data-target="#confirmExclusaoModal" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">24</th>
+                <td>Suco de Laranja</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+                <td>
+                    <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm btn-excluir" data-toggle="modal" data-target="#confirmExclusaoModal" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">25</th>
+                <td>Café</td>
+                <td><span class="badge badge-success">Ativo</span></td>
+                <td>
+                    <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm btn-excluir" data-toggle="modal" data-target="#confirmExclusaoModal" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">26</th>
+                <td>Chá Mate</td>
+                <td><span class="badge badge-secondary">Inativo</span></td>
+                <td>
+                    <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm btn-excluir" data-toggle="modal" data-target="#confirmExclusaoModal" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">27</th>
+                <td>Redbull</td>
+                <td><span class="badge badge-secondary">Inativo</span></td>
+                <td>
+                    <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm btn-excluir" data-toggle="modal" data-target="#confirmExclusaoModal" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">28</th>
+                <td>Monster Energy Drink</td>
+                <td><span class="badge badge-secondary">Inativo</span></td>
+                <td>
+                    <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm btn-excluir" data-toggle="modal" data-target="#confirmExclusaoModal" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">29</th>
+                <td>Sorvete</td>
+                <td><span class="badge badge-secondary">Inativo</span></td>
+                <td>
+                    <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm btn-excluir" data-toggle="modal" data-target="#confirmExclusaoModal" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">30</th>
+                <td>Macarrão Penne</td>
+                <td><span class="badge badge-secondary">Inativo</span></td>
+                <td>
+                    <button class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm btn-excluir" data-toggle="modal" data-target="#confirmExclusaoModal" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
             </tbody>
         </table>
 
@@ -190,6 +177,37 @@
                 <li class="page-item"><a class="page-link" href="pg3.html">3</a></li>
             </ul>
         </nav>
+    </div>
+
+    <!-- Modal para pesquisa -->
+    <div class="modal fade" id="pesquisarModal" tabindex="-1" aria-labelledby="pesquisarModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pesquisarModalLabel">Pesquisar Produto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="tipoPesquisa">Tipo de Pesquisa</label>
+                            <select class="form-control" id="tipoPesquisa">
+                                <option value="id">ID</option>
+                                <option value="descricao">Descrição</option>
+                                <option value="situacao">Situação</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="valorPesquisa">Valor</label>
+                            <input type="text" class="form-control" id="valorPesquisa" placeholder="Digite o valor da pesquisa">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Pesquisar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Modal para adicionar produto -->
@@ -234,13 +252,51 @@
         </div>
     </div>
 
+    <!-- Modal de confirmação de exclusão -->
+    <div class="modal fade" id="confirmExclusaoModal" tabindex="-1" aria-labelledby="confirmExclusaoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmExclusaoModalLabel">Confirmação de Exclusão</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>Deseja excluir este item?</p>
+                    <div>
+                        <button type="button" class="btn btn-success" id="confirmarExclusaoBtn">Sim</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript do Bootstrap e FontAwesome -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(function () {
             $('[data-toggle="tooltip"]').tooltip();
+
+            // Botão de recarregar página
+            $('#recarregarBtn').click(function () {
+                location.reload();
+            });
+
+            // Botão de exclusão com modal
+            var itemParaExcluir;
+            $('.btn-excluir').click(function () {
+                itemParaExcluir = $(this).closest('tr'); // Guarda a linha da tabela para exclusão
+            });
+
+            $('#confirmarExclusaoBtn').click(function () {
+                itemParaExcluir.remove(); // Remove a linha da tabela
+                $('#confirmExclusaoModal').modal('hide'); // Fecha o modal
+                alert('Item excluído com sucesso!');
+            });
         });
     </script>
 </body>
