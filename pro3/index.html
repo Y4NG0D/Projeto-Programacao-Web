@@ -57,7 +57,7 @@
                     id="cep" 
                     name="cep" 
                     placeholder="Somente números" 
-                    maxlength="9" 
+                    maxlength="8" 
                     required 
                 >
                 <small id="cepHelp" class="form-text text-muted">Digite os 8 dígitos do CEP sem hífen.</small>
@@ -98,6 +98,10 @@
                 <label for="distrito">Distrito:</label>
                 <input type="text" class="form-control" id="distrito" name="distrito" readonly>
             </div>
+            <div class="form-group">
+                <label for="municipio">Município:</label>
+                <input type="text" class="form-control" id="municipio" name="municipio" readonly>
+            </div>
         </form>
     </div>
     
@@ -124,6 +128,7 @@
                 $("#uf").val("");
                 $("#ibge").val("");
                 $("#distrito").val("");
+                $("#municipio").val("");
             }
 
             // Função para validar o CEP
@@ -154,6 +159,7 @@
                 $("#uf").val("...");
                 $("#ibge").val("...");
                 $("#distrito").val("...");
+                $("#municipio").val("...");
 
                 // URL da API ViaCEP
                 var url = "https://viacep.com.br/ws/" + cep + "/json/";
@@ -189,19 +195,26 @@
 
             // Função para consultar o distrito na API IBGE
             function obterDistrito(codigoIBGE) {
-                var urlIBGE = "https://servicodados.ibge.gov.br/api/v1/localidades/distritos/" + codigoIBGE;
+                var urlIBGE = "https://servicodados.ibge.gov.br/api/v1/localidades/distritos?orderBy=nome";
 
                 $.getJSON(urlIBGE, function(data) {
-                    if (data && data.length > 0) {
-                        $("#distrito").val(data[0].nome);
+                    var distritoEncontrado = data.find(function(distrito) {
+                        return distrito.municipio.id === parseInt(codigoIBGE);
+                    });
+
+                    if (distritoEncontrado) {
+                        $("#distrito").val(distritoEncontrado.nome);
+                        $("#municipio").val(distritoEncontrado.municipio.nome);
                     } else {
                         alert("Distrito não encontrado.");
                         $("#distrito").val("N/A");
+                        $("#municipio").val("N/A");
                     }
                 })
                 .fail(function() {
                     alert("Erro ao consultar o distrito na API IBGE.");
                     $("#distrito").val("N/A");
+                    $("#municipio").val("N/A");
                 });
             }
         });
