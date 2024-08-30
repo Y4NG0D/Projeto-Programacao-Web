@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Consulta de CEP - ViaCEP e IBGE</title>
+    <title>Consulta de CEP - BrasilAPI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS 4.0.0 -->
@@ -37,9 +37,6 @@
         .loading img {
             width: 50px;
         }
-        .resultados {
-            margin-top: 20px;
-        }
         .alert {
             display: none;
         }
@@ -63,13 +60,12 @@
                     id="cep" 
                     name="cep" 
                     placeholder="Somente números" 
-                    size="10" 
-                    maxlength="9" 
+                    maxlength="8" 
                     required 
                 >
-                <small id="cepHelp" class="form-text text-muted">Digite o CEP no formato 12345-678.</small>
+                <small id="cepHelp" class="form-text text-muted">Digite os 8 dígitos do CEP sem hífen.</small>
             </div>
-            <button type="button" class="btn btn-primary btn-consultar" id="mybtn">Clique</button>
+            <button type="submit" class="btn btn-primary btn-consultar" id="mybtn">Consultar</button>
         </form>
         
         <!-- Indicador de Carregamento -->
@@ -77,50 +73,38 @@
             <img src="https://i.imgur.com/llF5iyg.gif" alt="Carregando...">
         </div>
         
-        <!-- Mensagens de Feedback -->
-        <div class="alert alert-success" id="successMessage" role="alert">
-            Consulta realizada com sucesso!
-        </div>
-        <div class="alert alert-danger" id="errorMessage" role="alert">
-            Ocorreu um erro. Por favor, tente novamente mais tarde.
-        </div>
-
+        <hr>
+        
         <!-- Formulário de Resultados -->
-        <div class="resultados">
-            <form id="resultadoForm">
-                <div class="form-group">
-                    <label for="rua">Rua:</label>
-                    <input type="text" class="form-control" id="rua" name="rua" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="bairro">Bairro:</label>
-                    <input type="text" class="form-control" id="bairro" name="bairro" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="cidade">Cidade:</label>
-                    <input type="text" class="form-control" id="cidade" name="cidade" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="uf">Estado:</label>
-                    <input type="text" class="form-control" id="uf" name="uf" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="ibge">IBGE:</label>
-                    <input type="text" class="form-control" id="ibge" name="ibge" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="distrito">Distrito:</label>
-                    <input type="text" class="form-control" id="distrito" name="distrito" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="municipio">Município:</label>
-                    <input type="text" class="form-control" id="municipio" name="municipio" readonly>
-                </div>
-            </form>
-        </div>
+        <form id="resultadoForm">
+            <div class="form-group">
+                <label for="rua">Rua:</label>
+                <input type="text" class="form-control" id="rua" name="rua" readonly>
+            </div>
+            <div class="form-group">
+                <label for="bairro">Bairro:</label>
+                <input type="text" class="form-control" id="bairro" name="bairro" readonly>
+            </div>
+            <div class="form-group">
+                <label for="cidade">Cidade:</label>
+                <input type="text" class="form-control" id="cidade" name="cidade" readonly>
+            </div>
+            <div class="form-group">
+                <label for="uf">Estado:</label>
+                <input type="text" class="form-control" id="uf" name="uf" readonly>
+            </div>
+            <div class="form-group">
+                <label for="service">Serviço:</label>
+                <input type="text" class="form-control" id="service" name="service" readonly>
+            </div>
+        </form>
 
+        <!-- Mensagens de Feedback -->
+        <div class="alert alert-success" id="successMessage">Consulta realizada com sucesso!</div>
+        <div class="alert alert-danger" id="errorMessage">Erro ao consultar o CEP. Por favor, tente novamente mais tarde.</div>
+        
         <!-- Botão de Reset -->
-        <button type="button" class="btn btn-secondary btn-consultar" id="resetBtn">Limpar</button>
+        <button type="button" class="btn btn-secondary" id="resetBtn">Limpar</button>
     </div>
     
     <!-- jQuery e Popper.js -->
@@ -138,28 +122,25 @@
     <!-- JavaScript Personalizado -->
     <script type="text/javascript">
         $(document).ready(function() {
-            // Máscara para o CEP
-            $('#cep').mask('00000-000');
-
             // Função para limpar os campos de resultado
             function limparCampos() {
                 $("#rua").val("");
                 $("#bairro").val("");
                 $("#cidade").val("");
                 $("#uf").val("");
-                $("#ibge").val("");
-                $("#distrito").val("");
-                $("#municipio").val("");
+                $("#service").val("");
             }
 
             // Função para validar o CEP
             function validarCEP(cep) {
-                var regexCEP = /^[0-9]{5}-[0-9]{3}$/;
+                var regexCEP = /^[0-9]{8}$/;
                 return regexCEP.test(cep);
             }
 
-            // Evento de clique no botão de consulta
-            $("#mybtn").click(function() {
+            // Evento de submissão do formulário
+            $("#cepForm").submit(function(event){
+                event.preventDefault(); // Evita o comportamento padrão do formulário
+                
                 var cep = $("#cep").val().replace(/\D/g, ''); // Remove caracteres não numéricos
 
                 if(!validarCEP(cep)){
@@ -168,8 +149,7 @@
                     return;
                 }
 
-                // Desabilitar botão e mostrar indicador de carregamento
-                $("#mybtn").prop('disabled', true);
+                // Mostrar indicador de carregamento
                 $("#loading").show();
 
                 // Limpar campos de resultado e exibir "..."
@@ -177,65 +157,40 @@
                 $("#bairro").val("...");
                 $("#cidade").val("...");
                 $("#uf").val("...");
-                $("#ibge").val("...");
-                $("#distrito").val("...");
-                $("#municipio").val("...");
+                $("#service").val("...");
 
-                // Concatena a variável cep com a URL da API ViaCEP
-                var url = "https://viacep.com.br/ws/" + cep + "/json/";
+                // URL da API BrasilAPI
+                var url = "https://brasilapi.com.br/api/cep/v1/" + cep;
 
-                // Chama o método getJSON passando a URL da API com o cep informado
+                // Chamada AJAX para a API BrasilAPI
                 $.getJSON(url, function(retorno) {
                     if (!("erro" in retorno)) {
-                        // Atualiza os campos com os valores da consulta
-                        $("#rua").val(retorno.logradouro);
-                        $("#bairro").val(retorno.bairro);
-                        $("#cidade").val(retorno.localidade);
-                        $("#uf").val(retorno.uf);
-                        $("#ibge").val(retorno.ibge);
-                        
-                        // Mostrar mensagem de sucesso
+                        // Atualiza os campos com os dados retornados
+                        $("#rua").val(retorno.street);
+                        $("#bairro").val(retorno.neighborhood);
+                        $("#cidade").val(retorno.city);
+                        $("#uf").val(retorno.state);
+                        $("#service").val(retorno.service);
+
                         $("#successMessage").show();
-                        $("#errorMessage").hide();
                     } else {
-                        // CEP pesquisado não foi encontrado
+                        // CEP não encontrado
                         alert("CEP não encontrado.");
                         limparCampos();
-                        $("#successMessage").hide();
                         $("#errorMessage").show();
                     }
-                }).fail(function() {
-                    // Tratamento de falha
-                    alert("Erro ao consultar o CEP.");
+                })
+                .fail(function(){
+                    // Erro na requisição
+                    alert("Erro ao consultar o CEP. Por favor, tente novamente mais tarde.");
                     limparCampos();
-                    $("#successMessage").hide();
                     $("#errorMessage").show();
-                }).always(function() {
-                    // Habilitar botão e ocultar indicador de carregamento
-                    $("#mybtn").prop('disabled', false);
+                })
+                .always(function(){
+                    // Ocultar indicador de carregamento
                     $("#loading").hide();
                 });
             });
-
-            // Função para consultar o distrito usando o código IBGE
-            async function obterDistrito(codigoIBGE) {
-                try {
-                    var urlIBGE = "https://servicodados.ibge.gov.br/api/v1/localidades/distritos?orderBy=nome";
-                    var data = await $.getJSON(urlIBGE);
-                    var distritoEncontrado = data.find(distrito => distrito.municipio.id === parseInt(codigoIBGE));
-
-                    if (distritoEncontrado) {
-                        $("#distrito").val(distritoEncontrado.nome);
-                        $("#municipio").val(distritoEncontrado.municipio.nome);
-                    } else {
-                        $("#distrito").val("N/A");
-                        $("#municipio").val("N/A");
-                    }
-                } catch (error) {
-                    $("#distrito").val("N/A");
-                    $("#municipio").val("N/A");
-                }
-            }
 
             // Evento de clique no botão de reset
             $("#resetBtn").click(function() {
