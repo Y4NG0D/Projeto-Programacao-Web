@@ -14,7 +14,6 @@
     <title>Hello, world!</title>
   </head>
   <body>
-
   <div class="container">
       <div class="jumbotron">
         <h1>SELECIONANDO ELEMENTOS COM JQUERY</h1>
@@ -50,43 +49,50 @@
           <input id="campo2" type="text" placeholder="input ID 02" class="form-control" />
         </div>
       </div>
-
       <hr />
-
       <div class="row">
         <div class="col-md-4">
-          <button type="button" class="btn btn-danger" onclick="exibirOcultarGenerica('p', false)">Esconder parágrafos</button>
-          <button type="button" class="btn btn-success" onclick="exibirOcultarGenerica('p', true)">Exibir parágrafos</button>
+          <button type="button" class="btn btn-danger"  onclick="exibirOcultarGenerica('p', 'tag', false)">Esconder parágrafos</button>
+          <button type="button" class="btn btn-success" onclick="exibirOcultarGenerica('p', 'tag', true)">Exibir parágrafos</button>
         </div>
 
         <div class="col-md-4">
-          <button type="button" class="btn btn-danger" onclick="exibirOcultarGenerica('.caixa2', false)">Esconder divs</button>
-          <button type="button" class="btn btn-success" onclick="exibirOcultarGenerica('.caixa2', true)">Exibir divs</button>
+          <button type="button" class="btn btn-danger"  onclick="exibirOcultarGenerica('caixa2', 'classe', false)">Esconder divs</button>
+          <button type="button" class="btn btn-success" onclick="exibirOcultarGenerica('caixa2', 'classe', true)">Exibir divs</button>
         </div>
 
         <div class="col-md-4">
-          <button type="button" class="btn btn-danger" onclick="exibirOcultarGenerica('#campo1', false)">Esconder input ID 1</button>
-          <button type="button" class="btn btn-danger" onclick="exibirOcultarGenerica('#campo2', false)">Esconder input ID 2</button>
-          <button type="button" class="btn btn-success" onclick="exibirOcultarGenerica('#campo1', true)">Exibir input ID 1</button>
-          <button type="button" class="btn btn-success" onclick="exibirOcultarGenerica('#campo2', true)">Exibir input ID 2</button>
+          <button type="button" class="btn btn-danger"  onclick="exibirOcultarGenerica('campo1', 'id', false)">Esconder input ID 1</button>
+          <button type="button" class="btn btn-danger"  onclick="exibirOcultarGenerica('campo2', 'id', false)">Esconder input ID 2</button>
+          <button type="button" class="btn btn-success" onclick="exibirOcultarGenerica('campo1', 'id', true)">Exibir input ID 1</button>
+          <button type="button" class="btn btn-success" onclick="exibirOcultarGenerica('campo2', 'id', true)">Exibir input ID 2</button>
+
         </div>
       </div>
     </div>
 
     <!-- Optional JavaScript -->
-    <!-- jQuery full version, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-f1nSl0aOgtzFIxZWjcF9JvszM4PGLULy9nDfbtmVfLazEnGbQYZF1yfIzUwpxEoi" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7HUi+bX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
- 
-    <script type="text/javascript">
-      function exibirOcultarGenerica(seletor, flag) {
-        if (flag) {
-          $(seletor).fadeIn(1000); // Velocidade de 1 segundo
+<script type="text/javascript">
+      function exibirOcultarGenerica(seletor, tipo, flag){
+        let elemento;
+        if(tipo === 'tag') {
+          elemento = $(seletor);
+        } else if(tipo === 'classe') {
+          elemento = $('.' + seletor);
+        } else if(tipo === 'id') {
+          elemento = $('#' + seletor);
+        }
+        
+        if(flag) {
+          elemento.show('slow');
         } else {
-          $(seletor).fadeOut(1000); // Velocidade de 1 segundo
+          elemento.hide('slow');
         }
       }
-    </script>
-  </body>
+</script>
+ </body>
 </html>
