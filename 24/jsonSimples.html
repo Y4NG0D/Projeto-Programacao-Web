@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+
+
+var clienteTxt = '{"id":258, "nome": "Fulano da Silva Sauro", "datanasc": "01/07/1995" }';
+
+// Parse da string para um objeto JavaScript
+var cliente = JSON.parse(clienteTxt);
+
+// Impressão dos atributos no document.write
+document.write("ID: " + cliente.id + "<br>");
+document.write("Nome: " + cliente.nome + "<br>");
+document.write("Nascimento: " + cliente.datanasc + "<br>");
+
+
+</script>
+</html>
