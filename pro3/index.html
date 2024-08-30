@@ -2,16 +2,14 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Consulta de CEP - ViaCEP</title>
-    <!-- Meta tags para responsividade -->
+    <title>Consulta de CEP - ViaCEP e IBGE</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <!-- Bootstrap CSS 4.0.0 -->
     <link rel="stylesheet" 
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
           crossorigin="anonymous">
-    <link rel="stylesheet" href="normalize.css">
     
     <!-- CSS Personalizado -->
     <style>
@@ -96,6 +94,10 @@
                 <label for="ibge">IBGE:</label>
                 <input type="text" class="form-control" id="ibge" name="ibge" readonly>
             </div>
+            <div class="form-group">
+                <label for="distrito">Distrito:</label>
+                <input type="text" class="form-control" id="distrito" name="distrito" readonly>
+            </div>
         </form>
     </div>
     
@@ -121,6 +123,7 @@
                 $("#cidade").val("");
                 $("#uf").val("");
                 $("#ibge").val("");
+                $("#distrito").val("");
             }
 
             // Função para validar o CEP
@@ -150,6 +153,7 @@
                 $("#cidade").val("...");
                 $("#uf").val("...");
                 $("#ibge").val("...");
+                $("#distrito").val("...");
 
                 // URL da API ViaCEP
                 var url = "https://viacep.com.br/ws/" + cep + "/json/";
@@ -163,6 +167,9 @@
                         $("#cidade").val(retorno.localidade);
                         $("#uf").val(retorno.uf);
                         $("#ibge").val(retorno.ibge);
+
+                        // Chamada para a API IBGE para obter o distrito
+                        obterDistrito(retorno.ibge);
                     } else {
                         // CEP não encontrado
                         alert("CEP não encontrado.");
@@ -179,6 +186,24 @@
                     $("#loading").hide();
                 });
             });
+
+            // Função para consultar o distrito na API IBGE
+            function obterDistrito(codigoIBGE) {
+                var urlIBGE = "https://servicodados.ibge.gov.br/api/v1/localidades/distritos/" + codigoIBGE;
+
+                $.getJSON(urlIBGE, function(data) {
+                    if (data && data.length > 0) {
+                        $("#distrito").val(data[0].nome);
+                    } else {
+                        alert("Distrito não encontrado.");
+                        $("#distrito").val("N/A");
+                    }
+                })
+                .fail(function() {
+                    alert("Erro ao consultar o distrito na API IBGE.");
+                    $("#distrito").val("N/A");
+                });
+            }
         });
     </script>
 </body>
