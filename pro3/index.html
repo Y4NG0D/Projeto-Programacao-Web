@@ -37,6 +37,12 @@
         .loading img {
             width: 50px;
         }
+        .resultados {
+            margin-top: 20px;
+        }
+        .alert {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -57,10 +63,10 @@
                     id="cep" 
                     name="cep" 
                     placeholder="Somente números" 
-                    maxlength="8" 
+                    maxlength="9" 
                     required 
                 >
-                <small id="cepHelp" class="form-text text-muted">Digite os 8 dígitos do CEP sem hífen.</small>
+                <small id="cepHelp" class="form-text text-muted">Digite o CEP no formato 12345-678.</small>
             </div>
             <button type="submit" class="btn btn-primary btn-consultar" id="mybtn">Consultar</button>
         </form>
@@ -70,39 +76,50 @@
             <img src="https://i.imgur.com/llF5iyg.gif" alt="Carregando...">
         </div>
         
-        <hr>
-        
+        <!-- Mensagens de Feedback -->
+        <div class="alert alert-success" id="successMessage" role="alert">
+            Consulta realizada com sucesso!
+        </div>
+        <div class="alert alert-danger" id="errorMessage" role="alert">
+            Ocorreu um erro. Por favor, tente novamente mais tarde.
+        </div>
+
         <!-- Formulário de Resultados -->
-        <form id="resultadoForm">
-            <div class="form-group">
-                <label for="rua">Rua:</label>
-                <input type="text" class="form-control" id="rua" name="rua" readonly>
-            </div>
-            <div class="form-group">
-                <label for="bairro">Bairro:</label>
-                <input type="text" class="form-control" id="bairro" name="bairro" readonly>
-            </div>
-            <div class="form-group">
-                <label for="cidade">Cidade:</label>
-                <input type="text" class="form-control" id="cidade" name="cidade" readonly>
-            </div>
-            <div class="form-group">
-                <label for="uf">Estado:</label>
-                <input type="text" class="form-control" id="uf" name="uf" readonly>
-            </div>
-            <div class="form-group">
-                <label for="ibge">IBGE:</label>
-                <input type="text" class="form-control" id="ibge" name="ibge" readonly>
-            </div>
-            <div class="form-group">
-                <label for="distrito">Distrito:</label>
-                <input type="text" class="form-control" id="distrito" name="distrito" readonly>
-            </div>
-            <div class="form-group">
-                <label for="municipio">Município:</label>
-                <input type="text" class="form-control" id="municipio" name="municipio" readonly>
-            </div>
-        </form>
+        <div class="resultados">
+            <form id="resultadoForm">
+                <div class="form-group">
+                    <label for="rua">Rua:</label>
+                    <input type="text" class="form-control" id="rua" name="rua" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" class="form-control" id="bairro" name="bairro" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" class="form-control" id="cidade" name="cidade" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="uf">Estado:</label>
+                    <input type="text" class="form-control" id="uf" name="uf" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="ibge">IBGE:</label>
+                    <input type="text" class="form-control" id="ibge" name="ibge" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="distrito">Distrito:</label>
+                    <input type="text" class="form-control" id="distrito" name="distrito" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="municipio">Município:</label>
+                    <input type="text" class="form-control" id="municipio" name="municipio" readonly>
+                </div>
+            </form>
+        </div>
+
+        <!-- Botão de Reset -->
+        <button type="button" class="btn btn-secondary btn-consultar" id="resetBtn">Limpar</button>
     </div>
     
     <!-- jQuery e Popper.js -->
@@ -120,6 +137,9 @@
     <!-- JavaScript Personalizado -->
     <script type="text/javascript">
         $(document).ready(function(){
+            // Máscara para o CEP
+            $('#cep').mask('00000-000');
+
             // Função para limpar os campos de resultado
             function limparCampos() {
                 $("#rua").val("");
@@ -133,12 +153,12 @@
 
             // Função para validar o CEP
             function validarCEP(cep) {
-                var regexCEP = /^[0-9]{8}$/;
+                var regexCEP = /^[0-9]{5}-[0-9]{3}$/;
                 return regexCEP.test(cep);
             }
 
             // Evento de submissão do formulário
-            $("#cepForm").submit(function(event){
+            $("#cepForm").submit(async function(event){
                 event.preventDefault(); // Evita o comportamento padrão do formulário
                 
                 var cep = $("#cep").val().replace(/\D/g, ''); // Remove caracteres não numéricos
@@ -149,7 +169,8 @@
                     return;
                 }
 
-                // Mostrar indicador de carregamento
+                // Desabilitar botão e mostrar indicador de carregamento
+                $("#mybtn").prop('disabled', true);
                 $("#loading").show();
 
                 // Limpar campos de resultado e exibir "..."
@@ -161,62 +182,67 @@
                 $("#distrito").val("...");
                 $("#municipio").val("...");
 
-                // URL da API ViaCEP
-                var url = "https://viacep.com.br/ws/" + cep + "/json/";
+                try {
+                    // URL da API ViaCEP
+                    var url = "https://viacep.com.br/ws/" + cep + "/json/";
+                    var response = await $.getJSON(url);
 
-                // Chamada AJAX para a API ViaCEP
-                $.getJSON(url, function(retorno) {
-                    if (!("erro" in retorno)) {
-                        // Atualiza os campos com os dados retornados
-                        $("#rua").val(retorno.logradouro);
-                        $("#bairro").val(retorno.bairro);
-                        $("#cidade").val(retorno.localidade);
-                        $("#uf").val(retorno.uf);
-                        $("#ibge").val(retorno.ibge);
-
-                        // Chamada para a API IBGE para obter o distrito
-                        obterDistrito(retorno.ibge);
-                    } else {
-                        // CEP não encontrado
-                        alert("CEP não encontrado.");
-                        limparCampos();
+                    if (response.erro) {
+                        throw new Error("CEP não encontrado.");
                     }
-                })
-                .fail(function(){
-                    // Erro na requisição
-                    alert("Erro ao consultar o CEP. Por favor, tente novamente mais tarde.");
+
+                    // Atualiza os campos com os dados retornados
+                    $("#rua").val(response.logradouro);
+                    $("#bairro").val(response.bairro);
+                    $("#cidade").val(response.localidade);
+                    $("#uf").val(response.uf);
+                    $("#ibge").val(response.ibge);
+
+                    // Chamada para a API IBGE para obter o distrito
+                    await obterDistrito(response.ibge);
+
+                    // Mostrar mensagem de sucesso
+                    $("#successMessage").show();
+                    $("#errorMessage").hide();
+                } catch (error) {
+                    // Mostrar mensagem de erro
+                    $("#errorMessage").text(error.message).show();
+                    $("#successMessage").hide();
                     limparCampos();
-                })
-                .always(function(){
-                    // Ocultar indicador de carregamento
+                } finally {
+                    // Habilitar botão e ocultar indicador de carregamento
+                    $("#mybtn").prop('disabled', false);
                     $("#loading").hide();
-                });
+                }
             });
 
-            // Função para consultar o distrito na API IBGE
-            function obterDistrito(codigoIBGE) {
-                var urlIBGE = "https://servicodados.ibge.gov.br/api/v1/localidades/distritos?orderBy=nome";
-
-                $.getJSON(urlIBGE, function(data) {
-                    var distritoEncontrado = data.find(function(distrito) {
-                        return distrito.municipio.id === parseInt(codigoIBGE);
-                    });
+            // Função para consultar o distrito usando o código IBGE
+            async function obterDistrito(codigoIBGE) {
+                try {
+                    var urlIBGE = "https://servicodados.ibge.gov.br/api/v1/localidades/distritos?orderBy=nome";
+                    var data = await $.getJSON(urlIBGE);
+                    var distritoEncontrado = data.find(distrito => distrito.municipio.id === parseInt(codigoIBGE));
 
                     if (distritoEncontrado) {
                         $("#distrito").val(distritoEncontrado.nome);
                         $("#municipio").val(distritoEncontrado.municipio.nome);
                     } else {
-                        alert("Distrito não encontrado.");
                         $("#distrito").val("N/A");
                         $("#municipio").val("N/A");
                     }
-                })
-                .fail(function() {
-                    alert("Erro ao consultar o distrito na API IBGE.");
+                } catch (error) {
                     $("#distrito").val("N/A");
                     $("#municipio").val("N/A");
-                });
+                }
             }
+
+            // Evento de clique no botão de reset
+            $("#resetBtn").click(function() {
+                $("#cepForm")[0].reset(); // Limpa o formulário
+                limparCampos(); // Limpa os campos de resultado
+                $("#successMessage").hide();
+                $("#errorMessage").hide();
+            });
         });
     </script>
 </body>
