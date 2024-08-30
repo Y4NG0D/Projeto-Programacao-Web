@@ -40,6 +40,9 @@
         .alert {
             display: none;
         }
+        .form-control:read-only {
+            background-color: #e9ecef;
+        }
     </style>
 </head>
 <body>
@@ -146,6 +149,8 @@
                 if(!validarCEP(cep)){
                     alert("Formato de CEP inválido. Por favor, insira 8 dígitos numéricos.");
                     limparCampos();
+                    $("#successMessage").hide();
+                    $("#errorMessage").show().text("Formato de CEP inválido.");
                     return;
                 }
 
@@ -164,27 +169,26 @@
 
                 // Chamada AJAX para a API BrasilAPI
                 $.getJSON(url, function(retorno) {
-                    if (!("erro" in retorno)) {
+                    if (retorno && retorno.street) {
                         // Atualiza os campos com os dados retornados
                         $("#rua").val(retorno.street);
                         $("#bairro").val(retorno.neighborhood);
                         $("#cidade").val(retorno.city);
                         $("#uf").val(retorno.state);
-                        $("#service").val(retorno.service);
+                        $("#service").val(retorno.service || "Não disponível");
 
                         $("#successMessage").show();
+                        $("#errorMessage").hide();
                     } else {
                         // CEP não encontrado
-                        alert("CEP não encontrado.");
+                        $("#errorMessage").show().text("CEP não encontrado.");
                         limparCampos();
-                        $("#errorMessage").show();
                     }
                 })
                 .fail(function(){
                     // Erro na requisição
-                    alert("Erro ao consultar o CEP. Por favor, tente novamente mais tarde.");
+                    $("#errorMessage").show().text("Erro ao consultar o CEP. Por favor, tente novamente mais tarde.");
                     limparCampos();
-                    $("#errorMessage").show();
                 })
                 .always(function(){
                     // Ocultar indicador de carregamento
