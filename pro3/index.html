@@ -63,12 +63,13 @@
                     id="cep" 
                     name="cep" 
                     placeholder="Somente números" 
+                    size="10" 
                     maxlength="9" 
                     required 
                 >
                 <small id="cepHelp" class="form-text text-muted">Digite o CEP no formato 12345-678.</small>
             </div>
-            <button type="submit" class="btn btn-primary btn-consultar" id="mybtn">Consultar</button>
+            <button type="button" class="btn btn-primary btn-consultar" id="mybtn">Clique</button>
         </form>
         
         <!-- Indicador de Carregamento -->
@@ -136,7 +137,7 @@
     
     <!-- JavaScript Personalizado -->
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function() {
             // Máscara para o CEP
             $('#cep').mask('00000-000');
 
@@ -157,10 +158,8 @@
                 return regexCEP.test(cep);
             }
 
-            // Evento de submissão do formulário
-            $("#cepForm").submit(async function(event){
-                event.preventDefault(); // Evita o comportamento padrão do formulário
-                
+            // Evento de clique no botão de consulta
+            $("#mybtn").click(function() {
                 var cep = $("#cep").val().replace(/\D/g, ''); // Remove caracteres não numéricos
 
                 if(!validarCEP(cep)){
@@ -182,38 +181,40 @@
                 $("#distrito").val("...");
                 $("#municipio").val("...");
 
-                try {
-                    // URL da API ViaCEP
-                    var url = "https://viacep.com.br/ws/" + cep + "/json/";
-                    var response = await $.getJSON(url);
+                // Concatena a variável cep com a URL da API ViaCEP
+                var url = "https://viacep.com.br/ws/" + cep + "/json/";
 
-                    if (response.erro) {
-                        throw new Error("CEP não encontrado.");
+                // Chama o método getJSON passando a URL da API com o cep informado
+                $.getJSON(url, function(retorno) {
+                    if (!("erro" in retorno)) {
+                        // Atualiza os campos com os valores da consulta
+                        $("#rua").val(retorno.logradouro);
+                        $("#bairro").val(retorno.bairro);
+                        $("#cidade").val(retorno.localidade);
+                        $("#uf").val(retorno.uf);
+                        $("#ibge").val(retorno.ibge);
+                        
+                        // Mostrar mensagem de sucesso
+                        $("#successMessage").show();
+                        $("#errorMessage").hide();
+                    } else {
+                        // CEP pesquisado não foi encontrado
+                        alert("CEP não encontrado.");
+                        limparCampos();
+                        $("#successMessage").hide();
+                        $("#errorMessage").show();
                     }
-
-                    // Atualiza os campos com os dados retornados
-                    $("#rua").val(response.logradouro);
-                    $("#bairro").val(response.bairro);
-                    $("#cidade").val(response.localidade);
-                    $("#uf").val(response.uf);
-                    $("#ibge").val(response.ibge);
-
-                    // Chamada para a API IBGE para obter o distrito
-                    await obterDistrito(response.ibge);
-
-                    // Mostrar mensagem de sucesso
-                    $("#successMessage").show();
-                    $("#errorMessage").hide();
-                } catch (error) {
-                    // Mostrar mensagem de erro
-                    $("#errorMessage").text(error.message).show();
-                    $("#successMessage").hide();
+                }).fail(function() {
+                    // Tratamento de falha
+                    alert("Erro ao consultar o CEP.");
                     limparCampos();
-                } finally {
+                    $("#successMessage").hide();
+                    $("#errorMessage").show();
+                }).always(function() {
                     // Habilitar botão e ocultar indicador de carregamento
                     $("#mybtn").prop('disabled', false);
                     $("#loading").hide();
-                }
+                });
             });
 
             // Função para consultar o distrito usando o código IBGE
