@@ -1,13 +1,185 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <title>Consulta de CEP - ViaCEP</title>
+    <!-- Meta tags para responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap CSS 4.0.0 -->
+    <link rel="stylesheet" 
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+          crossorigin="anonymous">
     <link rel="stylesheet" href="normalize.css">
-    <title>Atividade</title>
+    
+    <!-- CSS Personalizado -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+            max-width: 600px;
+        }
+        .jumbotron {
+            background-color: #007bff;
+            color: white;
+            padding: 2rem 1rem;
+            border-radius: 0.3rem;
+        }
+        .btn-consultar {
+            width: 100%;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .loading img {
+            width: 50px;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Consulta de CEP</h1>
+            <p class="lead">Obtenha informações do seu endereço utilizando o CEP</p>
+        </div>
+        
+        <!-- Formulário de Consulta -->
+        <form id="cepForm">
+            <div class="form-group">
+                <label for="cep">CEP:</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="cep" 
+                    name="cep" 
+                    placeholder="Somente números" 
+                    maxlength="9" 
+                    required 
+                >
+                <small id="cepHelp" class="form-text text-muted">Digite os 8 dígitos do CEP sem hífen.</small>
+            </div>
+            <button type="submit" class="btn btn-primary btn-consultar" id="mybtn">Consultar</button>
+        </form>
+        
+        <!-- Indicador de Carregamento -->
+        <div class="loading" id="loading">
+            <img src="https://i.imgur.com/llF5iyg.gif" alt="Carregando...">
+        </div>
+        
+        <hr>
+        
+        <!-- Formulário de Resultados -->
+        <form id="resultadoForm">
+            <div class="form-group">
+                <label for="rua">Rua:</label>
+                <input type="text" class="form-control" id="rua" name="rua" readonly>
+            </div>
+            <div class="form-group">
+                <label for="bairro">Bairro:</label>
+                <input type="text" class="form-control" id="bairro" name="bairro" readonly>
+            </div>
+            <div class="form-group">
+                <label for="cidade">Cidade:</label>
+                <input type="text" class="form-control" id="cidade" name="cidade" readonly>
+            </div>
+            <div class="form-group">
+                <label for="uf">Estado:</label>
+                <input type="text" class="form-control" id="uf" name="uf" readonly>
+            </div>
+            <div class="form-group">
+                <label for="ibge">IBGE:</label>
+                <input type="text" class="form-control" id="ibge" name="ibge" readonly>
+            </div>
+        </form>
+    </div>
+    
+    <!-- jQuery e Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+            integrity="sha256-K+ctZQ8KXN1Z+Xkvk5Q12w1+nqaHK7+3wAmeefWJ4PY=" 
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7HUi+bX39j7fakFPskvXusvfa0b4Q" 
+            crossorigin="anonymous"></script>
+    <!-- Bootstrap JS 4.0.0 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+            crossorigin="anonymous"></script>
+    
+    <!-- JavaScript Personalizado -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // Função para limpar os campos de resultado
+            function limparCampos() {
+                $("#rua").val("");
+                $("#bairro").val("");
+                $("#cidade").val("");
+                $("#uf").val("");
+                $("#ibge").val("");
+            }
+
+            // Função para validar o CEP
+            function validarCEP(cep) {
+                var regexCEP = /^[0-9]{8}$/;
+                return regexCEP.test(cep);
+            }
+
+            // Evento de submissão do formulário
+            $("#cepForm").submit(function(event){
+                event.preventDefault(); // Evita o comportamento padrão do formulário
+                
+                var cep = $("#cep").val().replace(/\D/g, ''); // Remove caracteres não numéricos
+
+                if(!validarCEP(cep)){
+                    alert("Formato de CEP inválido. Por favor, insira 8 dígitos numéricos.");
+                    limparCampos();
+                    return;
+                }
+
+                // Mostrar indicador de carregamento
+                $("#loading").show();
+
+                // Limpar campos de resultado e exibir "..."
+                $("#rua").val("...");
+                $("#bairro").val("...");
+                $("#cidade").val("...");
+                $("#uf").val("...");
+                $("#ibge").val("...");
+
+                // URL da API ViaCEP
+                var url = "https://viacep.com.br/ws/" + cep + "/json/";
+
+                // Chamada AJAX para a API ViaCEP
+                $.getJSON(url, function(retorno) {
+                    if (!("erro" in retorno)) {
+                        // Atualiza os campos com os dados retornados
+                        $("#rua").val(retorno.logradouro);
+                        $("#bairro").val(retorno.bairro);
+                        $("#cidade").val(retorno.localidade);
+                        $("#uf").val(retorno.uf);
+                        $("#ibge").val(retorno.ibge);
+                    } else {
+                        // CEP não encontrado
+                        alert("CEP não encontrado.");
+                        limparCampos();
+                    }
+                })
+                .fail(function(){
+                    // Erro na requisição
+                    alert("Erro ao consultar o CEP. Por favor, tente novamente mais tarde.");
+                    limparCampos();
+                })
+                .always(function(){
+                    // Ocultar indicador de carregamento
+                    $("#loading").hide();
+                });
+            });
+        });
+    </script>
 </body>
 </html>
