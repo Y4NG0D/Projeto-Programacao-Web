@@ -1,7 +1,15 @@
 /* Geral */
 body {
     background-color: #f8f9fa;
+    color: #343a40;
     padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Modo escuro */
+body.dark-mode {
+    background-color: #343a40;
+    color: #f8f9fa;
 }
 
 /* Container */
@@ -15,16 +23,28 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+body.dark-mode .card {
+    background-color: #495057;
 }
 
 /* Labels do formulário */
 .form-label {
     font-weight: bold;
+    color: inherit;
 }
 
 /* Campos do formulário */
 .form-control {
     border-radius: 0.25rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .form-control {
+    background-color: #495057;
+    color: #f8f9fa;
 }
 
 /* Botão personalizado */
@@ -39,6 +59,28 @@ body {
     color: white;
 }
 
+body.dark-mode .btn-custom {
+    background-color: #6c757d;
+}
+
+body.dark-mode .btn-custom:hover {
+    background-color: #5a6268;
+}
+
+/* Botão modo escuro/claro */
+.btn-secondary {
+    border-radius: 0.25rem;
+}
+
+body.dark-mode .btn-secondary {
+    background-color: #6c757d;
+    color: #f8f9fa;
+}
+
+body.dark-mode .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
 /* Ícones */
 .icon {
     margin-right: 10px;
@@ -47,4 +89,9 @@ body {
 /* Alerta de erro */
 .alert {
     display: none;
+}
+
+body.dark-mode .alert {
+    background-color: #721c24;
+    color: #f8f9fa;
 }
