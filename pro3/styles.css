@@ -1,15 +1,8 @@
 /* Geral */
 body {
-    background-color: #f8f9fa;
-    color: #343a40;
+    background-color: #e0e0e0; /* Cinza claro */
+    color: #333; /* Texto em cinza escuro */
     padding: 20px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-/* Modo escuro */
-body.dark-mode {
-    background-color: #343a40;
-    color: #f8f9fa;
 }
 
 /* Container */
@@ -20,65 +13,36 @@ body.dark-mode {
 
 /* Card */
 .card {
+    background-color: #ffffff; /* Branco para o fundo do card */
+    color: #333; /* Texto em cinza escuro */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-}
-
-body.dark-mode .card {
-    background-color: #495057;
 }
 
 /* Labels do formulário */
 .form-label {
     font-weight: bold;
-    color: inherit;
+    color: #333; /* Texto em cinza escuro */
 }
 
 /* Campos do formulário */
 .form-control {
+    background-color: #f5f5f5; /* Cinza muito claro para o fundo dos campos */
+    border-color: #ccc; /* Cor da borda dos campos */
     border-radius: 0.25rem;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-body.dark-mode .form-control {
-    background-color: #495057;
-    color: #f8f9fa;
 }
 
 /* Botão personalizado */
 .btn-custom {
-    background-color: #007bff;
+    background-color: #0056b3; /* Azul escuro */
     color: white;
     border-radius: 0.25rem;
 }
 
 .btn-custom:hover {
-    background-color: #0056b3;
+    background-color: #003d7a; /* Azul mais escuro para o hover */
     color: white;
-}
-
-body.dark-mode .btn-custom {
-    background-color: #6c757d;
-}
-
-body.dark-mode .btn-custom:hover {
-    background-color: #5a6268;
-}
-
-/* Botão modo escuro/claro */
-.btn-secondary {
-    border-radius: 0.25rem;
-}
-
-body.dark-mode .btn-secondary {
-    background-color: #6c757d;
-    color: #f8f9fa;
-}
-
-body.dark-mode .btn-secondary:hover {
-    background-color: #5a6268;
 }
 
 /* Ícones */
@@ -89,9 +53,8 @@ body.dark-mode .btn-secondary:hover {
 /* Alerta de erro */
 .alert {
     display: none;
-}
-
-body.dark-mode .alert {
-    background-color: #721c24;
-    color: #f8f9fa;
+    background-color: #f8d7da; /* Fundo vermelho claro para o alerta */
+    color: #721c24; /* Texto vermelho escuro */
+    border: 1px solid #f5c6cb; /* Borda vermelha clara */
+    border-radius: 0.25rem;
 }
