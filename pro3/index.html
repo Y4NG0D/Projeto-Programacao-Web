@@ -1,78 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta de CEP</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="styles.css" rel="stylesheet">
-    <link href="normalize.css" rel="stylesheet">
+    <title>Busca de CEP</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="normalize.css">
 </head>
 <body>
     <div class="container">
-        <div class="card">
-            <h1 class="mb-4 text-center">Consulta de CEP</h1>
-            <form id="cepForm">
-                <div class="mb-3">
-                    <label for="cep" class="form-label">CEP:</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-search icon"></i></span>
-                        <input name="cep" type="text" id="cep" class="form-control" placeholder="Somente números" maxlength="9" />
-                    </div>
-                </div>
-                <button type="button" id="mybtn" class="btn btn-custom">Consultar</button>
-            </form>
-            <div id="result" class="mt-4">
-                <div class="alert alert-danger" id="error">CEP não encontrado.</div>
-                <div class="mb-3">
-                    <label for="rua" class="form-label">Rua:</label>
-                    <input name="rua" type="text" id="rua" class="form-control" />
-                </div>
-                <div class="mb-3">
-                    <label for="bairro" class="form-label">Bairro:</label>
-                    <input name="bairro" type="text" id="bairro" class="form-control" />
-                </div>
-                <div class="mb-3">
-                    <label for="cidade" class="form-label">Cidade:</label>
-                    <input name="cidade" type="text" id="cidade" class="form-control" />
-                </div>
-                <div class="mb-3">
-                    <label for="uf" class="form-label">Estado:</label>
-                    <input name="uf" type="text" id="uf" class="form-control" />
-                </div>
-                <div class="mb-3">
-                    <label for="ibge" class="form-label">IBGE:</label>
-                    <input name="ibge" type="text" id="ibge" class="form-control" />
-                </div>
-            </div>
+        <h1 class="my-4">Busca de CEP</h1>
+        <div class="form-group">
+            <label for="cep">Digite o CEP:</label>
+            <input type="text" id="cep" class="form-control" placeholder="Ex: 12345-678">
+            <button id="buscar" class="btn btn-primary mt-2">Buscar</button>
         </div>
+        <div id="resultado" class="mt-4"></div>
+        <button id="modo" class="btn btn-secondary mt-4">Modo Escuro</button>
     </div>
-
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#mybtn").click(function() {
-                var cep = $("#cep").val().replace("-", ""); // Remove o hífen, se houver
-                var url = "https://viacep.com.br/ws/" + cep + "/json/";
-
-                $.getJSON(url, function(retorno) {
-                    if (!("erro" in retorno)) {
-                        $("#result .alert").hide(); // Esconde a mensagem de erro se encontrado
-                        $("#rua").val(retorno.logradouro);
-                        $("#bairro").val(retorno.bairro);
-                        $("#cidade").val(retorno.localidade);
-                        $("#uf").val(retorno.uf);
-                        $("#ibge").val(retorno.ibge);
-                    } else {
-                        $("#result .alert").show(); // Mostra a mensagem de erro se não encontrado
-                    }
-                });
-            });
-        });
-    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
