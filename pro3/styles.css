@@ -1,0 +1,50 @@
+/* Geral */
+body {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Card */
+.card {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Labels do formulário */
+.form-label {
+    font-weight: bold;
+}
+
+/* Campos do formulário */
+.form-control {
+    border-radius: 0.25rem;
+}
+
+/* Botão personalizado */
+.btn-custom {
+    background-color: #007bff;
+    color: white;
+    border-radius: 0.25rem;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Ícones */
+.icon {
+    margin-right: 10px;
+}
+
+/* Alerta de erro */
+.alert {
+    display: none;
+}
